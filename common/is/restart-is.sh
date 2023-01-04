@@ -84,7 +84,7 @@ echo "Enabling GC Logs..."
 export JAVA_OPTS="-XX:+PrintGC -XX:+PrintGCDetails -Xloggc:${carbon_home}/repository/logs/gc.log"
 JAVA_OPTS+=" -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath="${carbon_home}/repository/logs/heap-dump.hprof""
 export JVM_MEM_OPTS="-Xms${heap_size} -Xmx${heap_size}"
-echo "JAVA_OPTS: $JAVA_OPTS"
+#echo "JAVA_OPTS: $JAVA_OPTS"
 echo "JVM_MEM_OPTS: $JVM_MEM_OPTS"
 
 echo "Restarting identity server..."

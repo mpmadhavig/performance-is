@@ -208,6 +208,7 @@ Resources:
       #Engine:  !Select [0, !Split ["_", !ImportValue DBEngine]]
       EngineVersion: 5.7.41
       Engine: MySQL
+      EnablePerformanceInsights : 'true'
       MasterUsername: !Ref DBUsername
       MasterUserPassword: !Ref DBPassword
       MultiAZ: 'false'
