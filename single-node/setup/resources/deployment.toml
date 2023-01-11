@@ -77,6 +77,3 @@ disable_account_lock_handler=true
 
 [identity_mgt.events.schemes.WorkflowPendingUserAuthnHandler]
 subscriptions=[]
-
-[authorization_manager.properties]
-GroupAndRoleSeparationEnabled=false
