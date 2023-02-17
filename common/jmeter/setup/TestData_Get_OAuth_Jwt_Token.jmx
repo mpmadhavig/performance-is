@@ -55,7 +55,7 @@
           </elementProp>
           <elementProp name="jwtTokenFilePath" elementType="Argument">
             <stringProp name="Argument.name">jwtTokenFilePath</stringProp>
-            <stringProp name="Argument.value">/Users/sachinm/Documents/WSO2/Onprem/performance-is/common/jmeter/resources/jwt_token.txt</stringProp>
+            <stringProp name="Argument.value">/home/ubuntu/jwt_token.txt</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
