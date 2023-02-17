@@ -219,6 +219,15 @@ declare -A test_scenario20=(
     [skip]=true
     [modes]="FULL DEVICE_FLOW"
 )
+declare -A test_scenario21=(
+    [name]="21-oauth_jwt_grant_tenant"
+    [display_name]="Jwt Grant Type"
+    [description]="Obtain an access token using the OAuth 2.0 jwt grant type."
+    [jmx]="oauth/OAuth_Jwt_Grant.jmx"
+    [tenantMode]=true
+    [skip]=true
+    [modes]="FULL"
+)
 
 function before_execute_test_scenario() {
 

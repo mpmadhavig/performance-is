@@ -84,6 +84,7 @@ is_port=$default_is_port
 
 noOfTenants=100
 spCount=10
+idpCount=1
 userCount=1000
 mode=""
 
@@ -120,7 +121,7 @@ function usage() {
     echo ""
 }
 
-while getopts "c:m:d:w:j:i:e:n:s:u:tp:v:h" opts; do
+while getopts "c:m:d:w:j:i:e:n:s:q:u:tp:v:h" opts; do
     case $opts in
     c)
         concurrent_users+=("${OPTARG}")
@@ -148,6 +149,9 @@ while getopts "c:m:d:w:j:i:e:n:s:u:tp:v:h" opts; do
         ;;
     s)
         spCount=("${OPTARG}")
+        ;;
+    q)
+        idpCount=("${OPTARG}")
         ;;
     u)
         userCount=("${OPTARG}")
@@ -351,7 +355,7 @@ function run_test_data_scripts() {
 
     echo "Running test data setup scripts"
     echo "=========================================================================================="
-    declare -a scripts=("TestData_SCIM2_Add_User.jmx" "TestData_Add_OAuth_Apps.jmx" "TestData_Add_SAML_Apps.jmx" "TestData_Add_images.jmx" "TestData_Add_Device_Flow_OAuth_Apps.jmx")
+    declare -a scripts=("TestData_SCIM2_Add_User.jmx" "TestData_Add_OAuth_Apps.jmx" "TestData_Add_SAML_Apps.jmx" "TestData_Add_images.jmx" "TestData_Add_Device_Flow_OAuth_Apps.jmx" "TestData_Add_OAuth_Idps.jmx" "TestData_Get_OAuth_Jwt_Token.jmx")
 #    declare -a scripts=("TestData_Add_Super_Tenant_Users.jmx" "TestData_Add_OAuth_Apps.jmx" "TestData_Add_SAML_Apps.jmx" "TestData_Add_Tenants.jmx" "TestData_Add_Tenant_Users.jmx")
     setup_dir="/home/ubuntu/workspace/jmeter/setup"
 
@@ -369,12 +373,12 @@ function run_tenant_test_data_scripts() {
 
     echo "Running tenant test data setup scripts"
     echo "=========================================================================================="
-    declare -a scripts=( "TestData_Add_Tenants.jmx" "TestData_SCIM2_Add_Tenant_Users.jmx" "TestData_Add_Tenant_OAuth_Apps.jmx" "TestData_Add_Tenant_SAML_Apps.jmx" "TestData_Add_Tenant_Device_Flow_OAuth_Apps.jmx")
+    declare -a scripts=( "TestData_Add_Tenants.jmx" "TestData_SCIM2_Add_Tenant_Users.jmx" "TestData_Add_Tenant_OAuth_Apps.jmx" "TestData_Add_Tenant_SAML_Apps.jmx" "TestData_Add_Tenant_Device_Flow_OAuth_Apps.jmx" "TestData_Add_Tenant_OAuth_Idps.jmx" "TestData_Get_OAuth_Jwt_Token.jmx")
     setup_dir="/home/ubuntu/workspace/jmeter/setup"
 
     for script in "${scripts[@]}"; do
         script_file="$setup_dir/$script"
-        command="jmeter -Jhost=$lb_host -Jport=$is_port -JnoOfTenants=$noOfTenants -JspCount=$spCount -JuserCount=$userCount -n -t $script_file"
+        command="jmeter -Jhost=$lb_host -Jport=$is_port -JnoOfTenants=$noOfTenants -JspCount=$spCount -JidpCount=$idpCount -JuserCount=$userCount -n -t $script_file"
         echo "$command"
         echo ""
         $command
@@ -523,7 +527,7 @@ function test_scenarios() {
 
                 local tenantMode=${scenario[tenantMode]}
                 if [ "$tenantMode" = true ]; then
-                      jmeter_params+=" -JtenantMode=true -JnoOfTenants=$noOfTenants -JspCount=$spCount -JuserCount=$userCount"
+                      jmeter_params+=" -JtenantMode=true -JnoOfTenants=$noOfTenants -JspCount=$spCount -JidpCount=$idpCount -JuserCount=$userCount"
                 fi
 
                 before_execute_test_scenario
