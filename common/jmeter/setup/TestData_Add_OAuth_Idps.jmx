@@ -182,6 +182,7 @@ if (y == 0) {
         &quot;jwksUri&quot;: &quot;${idpJwksUri}&quot;&#xd;
     },&#xd;
     &quot;idpIssuerName&quot;: &quot;${idpIssuerName}&quot;,&#xd;
+    &quot;alias&quot;: &quot;https://wso2is:9443/oauth2/token&quot;,&#xd;
     &quot;claims&quot;: {&#xd;
         &quot;provisioningClaims&quot;: [],&#xd;
         &quot;roleClaim&quot;: {&#xd;
