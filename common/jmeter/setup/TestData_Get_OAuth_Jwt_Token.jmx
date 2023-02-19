@@ -40,17 +40,17 @@
           </elementProp>
           <elementProp name="client_id" elementType="Argument">
             <stringProp name="Argument.name">client_id</stringProp>
-            <stringProp name="Argument.value">Twikge85mkpEsr0FnDrsFVo65tQa</stringProp>
+            <stringProp name="Argument.value">lsBp7fUIdfjSxJRRAZUI2zQGJhka</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="client_secret" elementType="Argument">
             <stringProp name="Argument.name">client_secret</stringProp>
-            <stringProp name="Argument.value">IAoUKLMANB7Tyf94ucHMAD2MPAEa</stringProp>
+            <stringProp name="Argument.value">c2_zkjHy8XXPc275BfVh0A7yvCAa</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="tokenEndpoint" elementType="Argument">
             <stringProp name="Argument.name">tokenEndpoint</stringProp>
-            <stringProp name="Argument.value">https://dev.api.asgardeo.io/t/satestasgardeob2b1/oauth2/token</stringProp>
+            <stringProp name="Argument.value">https://api.asgardeo.io/t/sachinm/oauth2/token</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="jwtTokenFilePath" elementType="Argument">

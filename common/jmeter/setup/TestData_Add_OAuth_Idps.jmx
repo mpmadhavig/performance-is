@@ -45,12 +45,12 @@
           </elementProp>
           <elementProp name="idpJwksUri" elementType="Argument">
             <stringProp name="Argument.name">idpJwksUri</stringProp>
-            <stringProp name="Argument.value">https://dev.api.asgardeo.io/t/satestasgardeob2b1/oauth2/jwks</stringProp>
+            <stringProp name="Argument.value">https://api.asgardeo.io/t/sachinm/oauth2/jwks</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="idpIssuerName" elementType="Argument">
             <stringProp name="Argument.name">idpIssuerName</stringProp>
-            <stringProp name="Argument.value">https://dev.api.asgardeo.io/t/satestasgardeob2b1/oauth2/token</stringProp>
+            <stringProp name="Argument.value">https://api.asgardeo.io/t/sachinm/oauth2/token</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="idpName" elementType="Argument">
