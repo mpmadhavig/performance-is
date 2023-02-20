@@ -230,6 +230,7 @@ if (y == 0) {
             &lt;xsd1:oauthConsumerSecret&gt;${consumerSecretPrefix}${sp_count_id}&lt;/xsd1:oauthConsumerSecret&gt;&#xd;
             &lt;xsd1:pkceMandatory&gt;false&lt;/xsd1:pkceMandatory&gt;&#xd;
             &lt;xsd1:pkceSupportPlain&gt;true&lt;/xsd1:pkceSupportPlain&gt;&#xd;
+            &lt;xsd1:tokenType&gt;JWT&lt;/xsd1:tokenType&gt;&#xd;
          &lt;/xsd:application&gt;&#xd;
       &lt;/xsd:registerOAuthApplicationData&gt;&#xd;
    &lt;/soapenv:Body&gt;&#xd;
