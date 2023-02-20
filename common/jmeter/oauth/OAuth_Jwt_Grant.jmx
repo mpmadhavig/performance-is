@@ -97,6 +97,23 @@
         </collectionProp>
       </Arguments>
       <hashTree/>
+      <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+        <boolProp name="resetInterpreter">false</boolProp>
+        <stringProp name="parameters"></stringProp>
+        <stringProp name="filename"></stringProp>
+        <stringProp name="script">String filePath = vars.get(&quot;jwtTokenFilePath&quot;);
+BufferedReader fileReader = new BufferedReader(new FileReader(filePath));
+int counter = 1;
+content = fileReader.readLine();
+while ((nextLine = fileReader.readLine()) != null)
+{
+content = content + &quot;\n&quot; + nextLine;
+counter++;
+}
+
+vars.put(&quot;jwt_token&quot;,content);</stringProp>
+      </BeanShellPreProcessor>
+      <hashTree/>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Jwt Grant" enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
@@ -186,19 +203,7 @@ String credentials = client_id + &quot;:&quot; + client_secret;
 byte[] encodedClientIdClientSecret = Base64.encodeBase64(credentials.getBytes());
 
 vars.put(&quot;clientCredentials&quot;,new String(encodedClientIdClientSecret));
-vars.put(&quot;tokenEndpoint&quot;,new String(tokenEndpoint));
-
-String filePath = vars.get(&quot;jwtTokenFilePath&quot;);
-BufferedReader fileReader = new BufferedReader(new FileReader(filePath));
-int counter = 1;
-content = fileReader.readLine();
-while ((nextLine = fileReader.readLine()) != null)
-{
-content = content + &quot;\n&quot; + nextLine;
-counter++;
-}
-
-vars.put(&quot;jwt_token&quot;,content);</stringProp>
+vars.put(&quot;tokenEndpoint&quot;,new String(tokenEndpoint));</stringProp>
         </BeanShellPreProcessor>
         <hashTree/>
         <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="setRequestingNode()" enabled="true">
