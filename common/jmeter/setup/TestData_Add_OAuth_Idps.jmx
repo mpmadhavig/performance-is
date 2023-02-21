@@ -43,11 +43,6 @@
             <stringProp name="Argument.value">idp_</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="idpJwksUri" elementType="Argument">
-            <stringProp name="Argument.name">idpJwksUri</stringProp>
-            <stringProp name="Argument.value">https://api.asgardeo.io/t/sachinm/oauth2/jwks</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
           <elementProp name="idpIssuerName" elementType="Argument">
             <stringProp name="Argument.name">idpIssuerName</stringProp>
             <stringProp name="Argument.value">https://api.asgardeo.io/t/sachinm/oauth2/token</stringProp>
@@ -179,7 +174,8 @@ if (y == 0) {
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
     &quot;certificate&quot;: {&#xd;
-        &quot;jwksUri&quot;: &quot;${idpJwksUri}&quot;&#xd;
+        &quot;jwksUri&quot;: &quot;&quot;,&#xd;
+        &quot;certificates&quot;:[&quot;LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tDQpNSUlDL2pDQ0FlYWdBd0lCQWdJRVZpSEVSVEFOQmdrcWhraUc5dzBCQVFRRkFEQkJNUkF3RGdZRFZRUUREQWR6DQpZV05vYVc1dE1RMHdDd1lEVlFRTERBUk9iMjVsTVE4d0RRWURWUVFLREFaT2IyNWxJRXd4RFRBTEJnTlZCQVlUDQpCRTV2Ym1Vd0hoY05Nakl3TmpJMk1UQXhNakkwV2hjTk16SXdOekl6TVRBeE1qSTBXakJCTVJBd0RnWURWUVFEDQpEQWR6WVdOb2FXNXRNUTB3Q3dZRFZRUUxEQVJPYjI1bE1ROHdEUVlEVlFRS0RBWk9iMjVsSUV3eERUQUxCZ05WDQpCQVlUQkU1dmJtVXdnZ0VpTUEwR0NTcUdTSWIzRFFFQkFRVUFBNElCRHdBd2dnRUtBb0lCQVFEUWtVcU91WkVODQo5cnlUaXFRS3ZicDgxTmFNTElhMVZDNTZTSTZhR1czek4zS0s3dzU1VGtvQm1IV2doRzl1V0xyMXE2VW01MkkvDQo5SDVLRGRyZCszS2E5eHJML3BzNCtyKzlyTEFxdDg4M2FwY1lKSFJYS2t6L21QR0Q0a3loY1VYckRzL1V0emI3DQoxSzlsVFRYVmNqS0E1ano3OVFxUHZsdnlYaW9idmg1eUYwd2paakp1YXRHV25zLzZvcmhGVUVUWmJtRTY0emI4DQpCdTZ1emRJK0hQMmx6WEhDUlljSGpyYzFRa1JvSUEwQnhVWW9QMGF1QlB0OTJMSnBmSkxzUGt5MldTcHNhakRZDQpRLzhuRjF3SitQY2FSTlN4bkhkNzlkQlJ3TG5TWU5VektoV1pyMW5NUWZLYVRzR3duWE5IMlhjbWhBOHB4OG9sDQoyNm9EOXIzWlk2RUJBZ01CQUFFd0RRWUpLb1pJaHZjTkFRRUVCUUFEZ2dFQkFEMmNHY1NRYUhSN1BVMFljQk5PDQp3RnFna3p4VHNhenNYMGdETTkzMUFNY204OXBlc2VENlQyM0lGSFlMV0lZM2V0MmxOVWFQMFlyZmFBVlRHQWhLDQo2NFIzYkZYSy9zMTdNdnMvZFBWMTFsNlpJOW0yUGNkekZaZ0pKR2NiZGphVE8rV2Z5MmExQ2tHbUd6Y3dFb3JHDQpDSTRRbFc4Vlk3eGxUMElGOFpnRXdieURFNEQzWnNVbkhoRm96SWYrUWxFc3ZCQ3RCTFZIOWxGZDVheElTOFlhDQpMREkycUtNRlVycG5MYUcxVGZadEhMVlI0UTRHYXBKWmkxSk9qNFBIT3ZWNEk4ZXZaWUk0WkdPUHQramt0K1A2DQpsT2N5MGxrQkJVOThmTFdtRlZnVEthMG5PZ05BWmZsaGswYmErSXdOa3MzV011R2VvaEdKWFBlREU0ZjR2b3NiDQoxT1U9DQotLS0tLUVORCBDRVJUSUZJQ0FURS0tLS0tDQo=&quot;]&#xd;
     },&#xd;
     &quot;idpIssuerName&quot;: &quot;${idpIssuerName}&quot;,&#xd;
     &quot;alias&quot;: &quot;https://localhost:9443/oauth2/token&quot;,&#xd;
