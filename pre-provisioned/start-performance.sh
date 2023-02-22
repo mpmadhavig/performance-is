@@ -296,7 +296,7 @@ echo "Creating summary.csv..."
 echo "============================================"
 cd "$results_dir"
 unzip -q results.zip
-wget -q http://sourceforge.net/projects/gcviewer/files/gcviewer-1.35.jar/download -O gcviewer.jar
+wget -q http://sourceforge.net/projects/gcviewer/files/gcviewer-1.36.jar/download -O gcviewer.jar
 "$results_dir"/jmeter/create-summary-csv.sh -d results -n "WSO2 Identity Server" -p wso2is -c "Heap Size" \
     -c "Concurrent Users" -r "([0-9]+[a-zA-Z])_heap" -r "([0-9]+)_users" -i -l -k 2 -g gcviewer.jar
 
