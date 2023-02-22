@@ -372,7 +372,7 @@ ls
 unzip -q results.zip
 echo "Unzipped results.zip"
 ls
-wget -q http://sourceforge.net/projects/gcviewer/files/gcviewer-1.35.jar/download -O gcviewer.jar
+wget -q http://sourceforge.net/projects/gcviewer/files/gcviewer-1.36.jar/download -O gcviewer.jar
 echo "Downloaded gcviewer.jar"
 pwd
 ls
