@@ -121,7 +121,7 @@ function usage() {
     echo ""
 }
 
-while getopts "c:m:d:w:j:i:e:n:s:q:u:tp:v:h" opts; do
+while getopts "c:m:d:w:j:i:e:n:s:q:u:tp:v:k:h" opts; do
     case $opts in
     c)
         concurrent_users+=("${OPTARG}")
@@ -164,6 +164,9 @@ while getopts "c:m:d:w:j:i:e:n:s:q:u:tp:v:h" opts; do
         ;;
     v)
         mode=${OPTARG}
+        ;;
+    k)
+        testK=("${OPTARG}")
         ;;
     h)
         usage
@@ -390,6 +393,8 @@ function initiailize_test() {
 
     echo "Test Check 03"
     echo "$mode"
+    echo "Test Check 04"
+    echo "$testK"
     # Filter scenarios
     if [[ ${#include_scenario_names[@]} -gt 0 ]] || [[ ${#exclude_scenario_names[@]} -gt 0 ]]; then
         declare -n scenario

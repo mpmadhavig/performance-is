@@ -118,7 +118,7 @@ shift "$((OPTIND - 1))"
 
 echo "Run mode: $mode"
 run_performance_tests_options="$@"
-run_performance_tests_options+=(" -v $mode")
+run_performance_tests_options+=(" -v $mode -k 'testValue'")
 
 
 if [[ ! -f $key_file ]]; then
