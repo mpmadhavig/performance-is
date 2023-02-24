@@ -388,6 +388,8 @@ function run_tenant_test_data_scripts() {
 
 function initiailize_test() {
 
+    echo "Test Check 03"
+    echo "$mode"
     # Filter scenarios
     if [[ ${#include_scenario_names[@]} -gt 0 ]] || [[ ${#exclude_scenario_names[@]} -gt 0 ]]; then
         declare -n scenario
@@ -493,6 +495,9 @@ function exit_handler() {
 trap exit_handler EXIT
 
 function test_scenarios() {
+
+    echo "Test Check 02"
+    echo "$mode"
 
     initiailize_test
     for heap in "${heap_sizes_array[@]}"; do

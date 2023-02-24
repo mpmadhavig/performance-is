@@ -226,7 +226,7 @@ declare -A test_scenario21=(
     [jmx]="oauth/OAuth_Jwt_Grant.jmx"
     [tenantMode]=false
     [skip]=false
-    [modes]="FULL"
+    [modes]="QUICK"
 )
 
 function before_execute_test_scenario() {
