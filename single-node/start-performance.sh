@@ -133,6 +133,9 @@ echo "$jwt_token_client_secret
 
 echo "Test check 01"
 echo "$run_performance_tests_options"
+echo "$mode"
+echo "$jwt_token_user_password"
+echo "$jwt_token_client_secret"
 
 if [[ ! -f $key_file ]]; then
     echo "Please provide the key file."
