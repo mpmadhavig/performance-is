@@ -74,7 +74,7 @@ function usage() {
     echo ""
 }
 
-while getopts "k:c:j:n:u:p:i:b:w:t:h:y:m" opts; do
+while getopts "k:c:j:n:u:p:i:b:w:y:m:t:h" opts; do
     case $opts in
     k)
         key_file=${OPTARG}
