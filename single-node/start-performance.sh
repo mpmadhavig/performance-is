@@ -74,7 +74,7 @@ function usage() {
     echo ""
 }
 
-while getopts "k:c:j:n:u:p:i:b:w:t:h" opts; do
+while getopts "k:c:j:n:u:p:i:b:w:t:h:y:m" opts; do
     case $opts in
     k)
         key_file=${OPTARG}
@@ -127,6 +127,9 @@ shift "$((OPTIND - 1))"
 echo "Run mode: $mode"
 run_performance_tests_options="$@"
 run_performance_tests_options+=(" -v $mode")
+
+echo "$jwt_token_user_password"
+echo "$jwt_token_client_secret
 
 echo "Test check 01"
 echo "$run_performance_tests_options"
