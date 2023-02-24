@@ -44,6 +44,8 @@ wso2_is_instance_type="$default_is_instance_type"
 default_bastion_instance_type=c5.xlarge
 bastion_instance_type="$default_bastion_instance_type"
 mode=""
+jwt_token_client_secret=""
+jwt_token_user_password=""
 
 results_dir="$PWD/results-$timestamp"
 default_minimum_stack_creation_wait_time=10
@@ -101,6 +103,12 @@ while getopts "k:c:j:n:u:p:i:b:w:t:h" opts; do
     w)
         minimum_stack_creation_wait_time=${OPTARG}
         ;;
+    y)
+        jwt_token_client_secret=${OPTARG}
+        ;;
+    m)
+        jwt_token_user_password=${OPTARG}
+        ;;
     t)
         mode=${OPTARG}
         ;;
@@ -120,6 +128,8 @@ echo "Run mode: $mode"
 run_performance_tests_options="$@"
 run_performance_tests_options+=(" -v $mode")
 
+echo "Test check 01"
+echo "$run_performance_tests_options"
 
 if [[ ! -f $key_file ]]; then
     echo "Please provide the key file."

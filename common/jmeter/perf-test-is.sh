@@ -494,6 +494,9 @@ trap exit_handler EXIT
 
 function test_scenarios() {
 
+    echo "Test Check 02"
+    echo "$mode"
+
     initiailize_test
     for heap in "${heap_sizes_array[@]}"; do
         declare -ng scenario
