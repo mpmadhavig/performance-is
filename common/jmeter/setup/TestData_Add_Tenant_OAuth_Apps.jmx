@@ -216,7 +216,7 @@ if (y == 0) {
   &quot;inboundProtocolConfiguration&quot;: {&#xd;
     &quot;oidc&quot;: {&#xd;
       &quot;accessToken&quot;: {&#xd;
-        &quot;type&quot;: &quot;Default&quot;,&#xd;
+        &quot;type&quot;: &quot;JWT&quot;,&#xd;
         &quot;userAccessTokenExpiryInSeconds&quot;: 3600,&#xd;
         &quot;applicationAccessTokenExpiryInSeconds&quot;: 3600,&#xd;
         &quot;bindingType&quot;: &quot;sso-session&quot;,&#xd;
