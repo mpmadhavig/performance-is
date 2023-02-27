@@ -28,14 +28,9 @@
       <hashTree/>
       <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Test Variables" enabled="true">
         <collectionProp name="Arguments.arguments">
-          <elementProp name="client_id" elementType="Argument">
-            <stringProp name="Argument.name">client_id</stringProp>
+          <elementProp name="jwtTokenClientId" elementType="Argument">
+            <stringProp name="Argument.name">jwtTokenClientId</stringProp>
             <stringProp name="Argument.value">lsBp7fUIdfjSxJRRAZUI2zQGJhka</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="client_secret" elementType="Argument">
-            <stringProp name="Argument.name">client_secret</stringProp>
-            <stringProp name="Argument.value">c2_zkjHy8XXPc275BfVh0A7yvCAa</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="tokenEndpoint" elementType="Argument">
@@ -48,14 +43,9 @@
             <stringProp name="Argument.value">/home/ubuntu/jwt_token.txt</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="username" elementType="Argument">
-            <stringProp name="Argument.name">username</stringProp>
+          <elementProp name="jwtTokenUsername" elementType="Argument">
+            <stringProp name="Argument.name">jwtTokenUsername</stringProp>
             <stringProp name="Argument.value">sachinmamoru@gmail.com</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
-          <elementProp name="password" elementType="Argument">
-            <stringProp name="Argument.name">password</stringProp>
-            <stringProp name="Argument.value">#Qwzxas1</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -102,6 +92,16 @@
           <elementProp name="noOfTenants" elementType="Argument">
             <stringProp name="Argument.name">noOfTenants</stringProp>
             <stringProp name="Argument.value">${__P(noOfTenants,1)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="jwtTokenUserPassword" elementType="Argument">
+            <stringProp name="Argument.name">jwtTokenUserPassword</stringProp>
+            <stringProp name="Argument.value">${__P(jwtTokenUserPassword,testPwd)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="jwtTokenClientSecret" elementType="Argument">
+            <stringProp name="Argument.name">jwtTokenClientSecret</stringProp>
+            <stringProp name="Argument.value">${__P(jwtTokenClientSecret,testScrt)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
         </collectionProp>
@@ -166,8 +166,8 @@
           <stringProp name="filename"></stringProp>
           <stringProp name="script">import org.apache.commons.codec.binary.Base64;
 
-String client_secret = vars.get(&quot;client_secret&quot;);
-String client_id = vars.get(&quot;client_id&quot;);
+String client_secret = vars.get(&quot;jwtTokenClientSecret&quot;);
+String client_id = vars.get(&quot;jwtTokenClientId&quot;);
 
 String credentials = client_id + &quot;:&quot; + client_secret;
 byte[] encodedClientIdClientSecret = Base64.encodeBase64(credentials.getBytes());
@@ -214,14 +214,14 @@ if (y == 0) {
               </elementProp>
               <elementProp name="username" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">${username}</stringProp>
+                <stringProp name="Argument.value">${jwtTokenUsername}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">username</stringProp>
               </elementProp>
               <elementProp name="password" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                <stringProp name="Argument.value">${password}</stringProp>
+                <stringProp name="Argument.value">${jwtTokenUserPassword}</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">password</stringProp>

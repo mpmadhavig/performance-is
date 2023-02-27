@@ -88,6 +88,10 @@ idpCount=1
 userCount=1000
 mode=""
 
+# JWT Bearer Grant Flow
+jwt_token_client_secret=""
+jwt_token_user_password=""
+
 # Start time of the test
 test_start_time=$(date +%s)
 # Scenario specific counters
@@ -121,7 +125,7 @@ function usage() {
     echo ""
 }
 
-while getopts "c:m:d:w:j:i:e:n:s:q:u:tp:v:k:h" opts; do
+while getopts "c:m:d:w:j:i:e:n:s:q:u:tp:v:y:r:h" opts; do
     case $opts in
     c)
         concurrent_users+=("${OPTARG}")
@@ -165,8 +169,11 @@ while getopts "c:m:d:w:j:i:e:n:s:q:u:tp:v:k:h" opts; do
     v)
         mode=${OPTARG}
         ;;
-    k)
-        testK=("${OPTARG}")
+    y)
+        jwt_token_client_secret=("${OPTARG}")
+        ;;
+    r)
+        jwt_token_user_password=("${OPTARG}")
         ;;
     h)
         usage
@@ -381,7 +388,7 @@ function run_tenant_test_data_scripts() {
 
     for script in "${scripts[@]}"; do
         script_file="$setup_dir/$script"
-        command="jmeter -Jhost=$lb_host -Jport=$is_port -JnoOfTenants=$noOfTenants -JspCount=$spCount -JidpCount=$idpCount -JuserCount=$userCount -n -t $script_file"
+        command="jmeter -Jhost=$lb_host -Jport=$is_port -JnoOfTenants=$noOfTenants -JspCount=$spCount -JidpCount=$idpCount -JuserCount=$userCount -JjwtTokenUserPassword=$jwt_token_user_password -JjwtTokenClientSecret=$jwt_token_client_secret -n -t $script_file"
         echo "$command"
         echo ""
         $command
@@ -537,7 +544,7 @@ function test_scenarios() {
 
                 local tenantMode=${scenario[tenantMode]}
                 if [ "$tenantMode" = true ]; then
-                      jmeter_params+=" -JtenantMode=true -JnoOfTenants=$noOfTenants -JspCount=$spCount -JidpCount=$idpCount -JuserCount=$userCount"
+                      jmeter_params+=" -JtenantMode=true -JnoOfTenants=$noOfTenants -JspCount=$spCount -JidpCount=$idpCount -JuserCount=$userCount -JjwtTokenUserPassword=$jwt_token_user_password -JjwtTokenClientSecret=$jwt_token_client_secret"
                 fi
 
                 before_execute_test_scenario

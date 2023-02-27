@@ -44,6 +44,8 @@ wso2_is_instance_type="$default_is_instance_type"
 default_bastion_instance_type=c5.xlarge
 bastion_instance_type="$default_bastion_instance_type"
 mode=""
+jwt_token_client_secret=""
+jwt_token_user_password=""
 
 results_dir="$PWD/results-$timestamp"
 default_minimum_stack_creation_wait_time=10
@@ -72,7 +74,7 @@ function usage() {
     echo ""
 }
 
-while getopts "k:c:j:n:u:p:i:b:w:t:h" opts; do
+while getopts "k:c:j:n:u:p:i:b:w:y:r:t:h" opts; do
     case $opts in
     k)
         key_file=${OPTARG}
@@ -101,6 +103,12 @@ while getopts "k:c:j:n:u:p:i:b:w:t:h" opts; do
     w)
         minimum_stack_creation_wait_time=${OPTARG}
         ;;
+    y)
+        jwt_token_client_secret=${OPTARG}
+        ;;
+    r)
+        jwt_token_user_password=${OPTARG}
+        ;;
     t)
         mode=${OPTARG}
         ;;
@@ -118,7 +126,7 @@ shift "$((OPTIND - 1))"
 
 echo "Run mode: $mode"
 run_performance_tests_options="$@"
-run_performance_tests_options+=(" -v $mode -k 'testValue'")
+run_performance_tests_options+=(" -v $mode -y $jwt_token_client_secret -r $jwt_token_user_password")
 
 
 if [[ ! -f $key_file ]]; then
