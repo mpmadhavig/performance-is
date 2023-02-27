@@ -54,7 +54,7 @@
 # Finally, execute test scenarios using the function test_scenarios
 
 # Concurrent users (these will by multiplied by the number of JMeter servers)
-default_concurrent_users="50 100 150 300 500"
+default_concurrent_users="50"
 # Application heap Sizes
 default_heap_sizes="2G"
 
@@ -170,10 +170,10 @@ while getopts "c:m:d:w:j:i:e:n:s:q:u:tp:v:y:r:h" opts; do
         mode=${OPTARG}
         ;;
     y)
-        jwt_token_client_secret=("${OPTARG}")
+        jwt_token_client_secret=${OPTARG}
         ;;
     r)
-        jwt_token_user_password=("${OPTARG}")
+        jwt_token_user_password=${OPTARG}
         ;;
     h)
         usage
@@ -401,7 +401,9 @@ function initiailize_test() {
     echo "Test Check 03"
     echo "$mode"
     echo "Test Check 04"
-    echo "$testK"
+    echo "$jwt_token_client_secret"
+    echo "Test Check 05"
+    echo "$jwt_token_user_password"
     # Filter scenarios
     if [[ ${#include_scenario_names[@]} -gt 0 ]] || [[ ${#exclude_scenario_names[@]} -gt 0 ]]; then
         declare -n scenario
