@@ -126,7 +126,7 @@ shift "$((OPTIND - 1))"
 
 echo "Run mode: $mode"
 run_performance_tests_options="$@"
-run_performance_tests_options+=(" -v $mode -k $jwt_token_client_secret")
+run_performance_tests_options+=(" -v $mode -k $jwt_token_client_secret -o 'test5'")
 
 if [[ ! -f $key_file ]]; then
     echo "Please provide the key file."
@@ -197,7 +197,7 @@ echo "Extracting IS Performance Distribution to $results_dir"
 tar -xf target/is-performance-singlenode-*.tar.gz -C "$results_dir"
 
 cp run-performance-tests.sh "$results_dir"/jmeter/
-estimate_command="$results_dir/jmeter/run-performance-tests.sh -t ${run_performance_tests_options[@]} -o $jwt_token_user_password"
+estimate_command="$results_dir/jmeter/run-performance-tests.sh -t ${run_performance_tests_options[@]}"
 echo ""
 echo "Estimating time for performance tests: $estimate_command"
 # Estimating this script will also validate the options. It's important to validate options before creating the stack.
@@ -351,7 +351,7 @@ echo ""
 echo "Running performance tests..."
 echo "============================================"
 scp -i "$key_file" -o StrictHostKeyChecking=no run-performance-tests.sh ubuntu@"$bastion_node_ip":/home/ubuntu/workspace/jmeter
-run_performance_tests_command="./workspace/jmeter/run-performance-tests.sh ${run_performance_tests_options[@]} -o $jwt_token_user_password"
+run_performance_tests_command="./workspace/jmeter/run-performance-tests.sh ${run_performance_tests_options[@]}"
 run_remote_tests="ssh -i $key_file -o "StrictHostKeyChecking=no" -t ubuntu@$bastion_node_ip $run_performance_tests_command"
 echo "$run_remote_tests"
 $run_remote_tests || echo "Remote test ssh command failed."
