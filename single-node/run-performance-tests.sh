@@ -226,7 +226,7 @@ declare -A test_scenario21=(
     [jmx]="oauth/OAuth_Jwt_Grant.jmx"
     [tenantMode]=false
     [skip]=false
-    [modes]="QUICK"
+    [modes]="FULL JWT_GRANT_FLOW"
 )
 
 function before_execute_test_scenario() {
