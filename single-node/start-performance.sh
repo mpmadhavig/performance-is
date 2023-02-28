@@ -126,9 +126,8 @@ shift "$((OPTIND - 1))"
 
 echo "Run mode: $mode"
 run_performance_tests_options="$@"
-run_performance_tests_options+=(" -v $mode")
-run_performance_tests_options+=(" -k $jwt_token_client_secret")
-run_performance_tests_options+=(" -g $jwt_token_user_password -pt 'test'")
+run_performance_tests_options+=(" -v $mode -k $jwt_token_client_secret")
+#run_performance_tests_options+=(" -g $jwt_token_user_password -pt 'test'")
 
 if [[ ! -f $key_file ]]; then
     echo "Please provide the key file."
