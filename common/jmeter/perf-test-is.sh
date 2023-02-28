@@ -125,7 +125,7 @@ function usage() {
     echo ""
 }
 
-while getopts "c:m:d:w:j:i:e:n:s:q:u:tp:v:y:r:h" opts; do
+while getopts "c:m:d:w:j:i:e:n:s:q:u:tp:v:y:g:h" opts; do
     case $opts in
     c)
         concurrent_users+=("${OPTARG}")
@@ -172,7 +172,7 @@ while getopts "c:m:d:w:j:i:e:n:s:q:u:tp:v:y:r:h" opts; do
     y)
         jwt_token_client_secret=${OPTARG}
         ;;
-    r)
+    g)
         jwt_token_user_password=${OPTARG}
         ;;
     h)
