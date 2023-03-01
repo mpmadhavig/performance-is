@@ -101,6 +101,10 @@ idpCount=1
 userCount=1000
 mode=""
 
+# JWT Bearer Grant Flow
+jwt_token_client_secret=""
+jwt_token_user_password=""
+
 function get_ssh_hostname() {
     ssh -G "$1" | awk '/^hostname / { print $2 }'
 }
@@ -134,7 +138,7 @@ function usage() {
     echo ""
 }
 
-while getopts "c:m:d:w:j:i:e:x:y:g:z:tp:u:k:l:n:r:s:q:b:f:v:h" opts; do
+while getopts "c:m:d:w:j:i:e:x:y:g:z:tp:u:k:l:n:r:s:q:b:f:o:v:k:h" opts; do
     case $opts in
     c)
         concurrent_users+=("${OPTARG}")
@@ -202,8 +206,14 @@ while getopts "c:m:d:w:j:i:e:x:y:g:z:tp:u:k:l:n:r:s:q:b:f:v:h" opts; do
     f)
         databaseName=${OPTARG}
         ;;
+    o)
+        jwt_token_user_password=${OPTARG}
+        ;;
     v)
         mode=${OPTARG}
+        ;;
+    k)
+        jwt_token_client_secret=${OPTARG}
         ;;
     h)
         usage
@@ -403,7 +413,7 @@ function run_test_data_scripts() {
 
     for script in "${scripts[@]}"; do
         script_file="$setup_dir/$script"
-        command="jmeter -Jhost=$lb_host -Jport=$is_port -Jusername=$superAdminUsername -Jpassword=$superAdminPassword -JadminCredentials=$base64EncodedCredentials -n -t $script_file"
+        command="jmeter -Jhost=$lb_host -Jport=$is_port -Jusername=$superAdminUsername -Jpassword=$superAdminPassword -JadminCredentials=$base64EncodedCredentials -JjwtTokenUserPassword=$jwt_token_user_password -JjwtTokenClientSecret=$jwt_token_client_secret -n -t $script_file"
         echo "$command"
         echo ""
         $command
@@ -420,7 +430,7 @@ function run_tenant_test_data_scripts() {
 
     for script in "${scripts[@]}"; do
         script_file="$setup_dir/$script"
-        command="jmeter -Jhost=$lb_host -Jport=$is_port -Jusername=$superAdminUsername -Jpassword=$superAdminPassword -JnoOfTenants=$noOfTenants -JspCount=$spCount -JidpCount=$idpCount -JuserCount=$userCount -n -t $script_file"
+        command="jmeter -Jhost=$lb_host -Jport=$is_port -Jusername=$superAdminUsername -Jpassword=$superAdminPassword -JnoOfTenants=$noOfTenants -JspCount=$spCount -JidpCount=$idpCount -JuserCount=$userCount -JjwtTokenUserPassword=$jwt_token_user_password -JjwtTokenClientSecret=$jwt_token_client_secret -n -t $script_file"
         echo "$command"
         echo ""
         $command
@@ -572,7 +582,7 @@ function test_scenarios() {
                 declare -ag jmeter_params=("concurrency=$users" "time=$time" "host=$lb_host" "port=$is_port" "adminCredentials=$base64EncodedCredentials")
                 local tenantMode=${scenario[tenantMode]}
                 if [ "$tenantMode" = true ]; then
-                      jmeter_params+=" -JtenantMode=true -JnoOfTenants=$noOfTenants -JspCount=$spCount -JidpCount=$idpCount -JuserCount=$userCount"
+                      jmeter_params+=" -JtenantMode=true -JnoOfTenants=$noOfTenants -JspCount=$spCount -JidpCount=$idpCount -JuserCount=$userCount -JjwtTokenUserPassword=$jwt_token_user_password -JjwtTokenClientSecret=$jwt_token_client_secret"
                 fi
 
                 before_execute_test_scenario
