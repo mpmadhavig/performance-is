@@ -206,7 +206,7 @@ check_command bc
 check_command aws
 check_command unzip
 check_command jq
-check_command python
+check_command python3
 
 mkdir "$results_dir"
 echo ""
