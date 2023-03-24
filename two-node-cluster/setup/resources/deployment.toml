@@ -55,8 +55,8 @@ maxThreads = "500"
 acceptCount = "500"
 
 [transport.https]
-maxThreads = "500"
-acceptCount = "500"
+maxThreads = "800"
+acceptCount = "800"
 
 [authentication.consent]
 prompt = true
