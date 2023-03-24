@@ -54,7 +54,7 @@ maxActive = "300"
 maxThreads = "500"
 acceptCount = "500"
 
-[transport.https]
+[transport.https.properties]
 maxThreads = "700"
 acceptCount = "700"
 
