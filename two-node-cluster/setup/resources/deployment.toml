@@ -92,6 +92,5 @@ GroupAndRoleSeparationEnabled=false
 [oauth.grant_type.jwt]
 iat_validity_period=1440
 
-[catalina.valves.valve.properties]
-className = "org.wso2.carbon.tomcat.ext.valves.CarbonStuckThreadDetectionValve"
-threshold="3000"
+[transport.https.properties]
+maxThreads="500"
