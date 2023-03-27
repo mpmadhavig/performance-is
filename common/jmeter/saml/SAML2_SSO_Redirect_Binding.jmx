@@ -410,8 +410,8 @@ ${password}
         </HTTPSamplerProxy>
         <hashTree>
           <GaussianRandomTimer guiclass="GaussianRandomTimerGui" testclass="GaussianRandomTimer" testname="Gaussian Random Timer" enabled="true">
-            <stringProp name="ConstantTimer.delay">4000</stringProp>
-            <stringProp name="RandomTimer.range">4000</stringProp>
+            <stringProp name="ConstantTimer.delay">6000</stringProp>
+            <stringProp name="RandomTimer.range">2000</stringProp>
           </GaussianRandomTimer>
           <hashTree/>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="HTTP 200" enabled="true">
