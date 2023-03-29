@@ -60,6 +60,7 @@ if [[ -z $db_instance_ip ]]; then
     exit 1
 fi
 
+sleep 5m
 check_command unzip
 
 echo ""
