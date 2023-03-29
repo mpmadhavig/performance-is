@@ -49,6 +49,8 @@ if [[ -z $db_instance_ip ]]; then
     exit 1
 fi
 
+sudo killall apt apt-get
+
 sudo apt-get -y -q -o Dpkg::Options::='--force-confdef' -o Dpkg::Options::='--force-confold' install unzip
 
 echo ""
