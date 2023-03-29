@@ -56,8 +56,6 @@ if [[ -z $db_instance_ip ]]; then
     exit 1
 fi
 
-sudo killall apt apt-get
-
 check_command unzip
 
 echo ""
