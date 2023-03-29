@@ -28,6 +28,13 @@ function usage() {
     echo ""
 }
 
+function check_command() {
+    if ! command -v "$1" >/dev/null 2>&1; then
+        echo "Please install "
+        sudo apt-get -y -q -o Dpkg::Options::='--force-confdef' -o Dpkg::Options::='--force-confold' install "$1"
+    fi
+}
+
 while getopts "l:h" opts; do
     case $opts in
     l)
@@ -51,7 +58,7 @@ fi
 
 sudo killall apt apt-get
 
-sudo apt-get -y -q -o Dpkg::Options::='--force-confdef' -o Dpkg::Options::='--force-confold' install unzip
+check_command unzip
 
 echo ""
 echo "unzipping is server"
