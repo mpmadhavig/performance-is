@@ -31,6 +31,7 @@ function usage() {
 function check_command() {
     if ! command -v "$1" >/dev/null 2>&1; then
         echo "Please install "
+        sudo rm /var/lib/dpkg/lock-frontend
         sudo apt-get -y -q -o Dpkg::Options::='--force-confdef' -o Dpkg::Options::='--force-confold' install "$1"
     fi
 }
