@@ -108,7 +108,7 @@ mysql -h "$db_instance_ip" -u wso2carbon -pwso2carbon < resources/createDB.sql
 export JAVA_HOME=/usr/lib/jvm/jdk
 sudo su
 sudo sh -c 'echo "export JAVA_HOME=/usr/lib/jvm/jdk" >> /etc/environment'
-sudo source /etc/environment
+source /etc/environment
 
 echo ""
 echo "Starting WSO2 IS server..."
