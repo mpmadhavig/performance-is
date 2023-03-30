@@ -107,7 +107,7 @@ mysql -h "$db_instance_ip" -u wso2carbon -pwso2carbon < resources/createDB.sql
 
 export JAVA_HOME=/usr/lib/jvm/jdk
 sudo su
-sudo echo "export JAVA_HOME=/usr/lib/jvm/jdk" >>/etc/environment
+sudo sh -c 'echo "export JAVA_HOME=/usr/lib/jvm/jdk" >> /etc/environment'
 sudo source /etc/environment
 
 echo ""
