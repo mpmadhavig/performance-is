@@ -60,17 +60,17 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="noOfThreads" elementType="Argument">
             <stringProp name="Argument.name">noOfThreads</stringProp>
-            <stringProp name="Argument.value">${__P(concurrency,20)}</stringProp>
+            <stringProp name="Argument.value">${__P(concurrency,10)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="rampUpPeriod" elementType="Argument">
             <stringProp name="Argument.name">rampUpPeriod</stringProp>
-            <stringProp name="Argument.value">${__P(rampUpPeriod,20)}</stringProp>
+            <stringProp name="Argument.value">${__P(rampUpPeriod,10)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="noOfSPs" elementType="Argument">
             <stringProp name="Argument.name">noOfSPs</stringProp>
-            <stringProp name="Argument.value">${__P(spCount,2000)}</stringProp>
+            <stringProp name="Argument.value">${__P(spCount,1000)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="loopCount" elementType="Argument">
