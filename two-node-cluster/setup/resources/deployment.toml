@@ -51,8 +51,8 @@ password = "wso2carbon"
 maxActive = "500"
 
 [transport.https.properties]
-maxThreads = "2600"
-acceptCount = "2600"
+maxThreads = "2300"
+acceptCount = "2300"
 
 [authentication.consent]
 prompt = true
