@@ -21,7 +21,7 @@ default_carbon_home=$(realpath ~/wso2is)
 carbon_home=$default_carbon_home
 default_waiting_time=100
 waiting_time=$default_waiting_time
-default_heap_size="2g"
+default_heap_size="4g"
 heap_size="$default_heap_size"
 
 function usage() {
@@ -83,7 +83,7 @@ killall java
 echo "Enabling GC Logs..."
 #export JAVA_OPTS="-XX:+PrintGC -XX:+PrintGCDetails -XX:+PrintGCDateStamps -Xloggc:${carbon_home}/repository/logs/gc.log"
 #JAVA_OPTS+=" -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath="${carbon_home}/repository/logs/heap-dump.hprof""
-export JVM_MEM_OPTS="-Xms${heap_size} -Xmx${heap_size}"
+export JVM_MEM_OPTS="-Xms4g -Xmx4g"
 #echo "JAVA_OPTS: $JAVA_OPTS"
 echo "JVM_MEM_OPTS: $JVM_MEM_OPTS"
 
