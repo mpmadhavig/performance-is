@@ -25,7 +25,7 @@ function usage() {
     echo "$0 -i <IS_NODE_IP> -r <RDS_IP> -w <OTHER_IS_NODE_IP> "
     echo ""
     echo "-i: The IP of wso2is node 1."
-    echo "-i: The IP of wso2is node 3."
+    echo "-j: The IP of wso2is node 3."
     echo "-r: The IP address of RDS."
     echo "-w: The IP of wso2is node 2."
     echo "-h: Display this help and exit."
