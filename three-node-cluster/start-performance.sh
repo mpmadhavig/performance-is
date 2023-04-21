@@ -392,10 +392,6 @@ echo "$setup_bastion_node_command"
 $setup_bastion_node_command || echo "Remote ssh command failed."
 
 echo ""
-echo "Sleep for FD Limit"
-sleep 30m
-
-echo ""
 echo "Creating databases in RDS..."
 echo "============================================"
 create_db_command="ssh -i $key_file -o "StrictHostKeyChecking=no" -t ubuntu@$bastion_node_ip mysql -h $rds_host \
@@ -409,7 +405,7 @@ echo ""
 echo "Running IS node 1 setup script..."
 echo "============================================"
 setup_is_command="ssh -i $key_file -o "StrictHostKeyChecking=no" -t ubuntu@$bastion_node_ip \
-    ./setup/setup-is.sh -a wso2is1 -i $wso2_is_1_ip -w $wso2_is_2_ip -r $rds_host"
+    ./setup/setup-is.sh -a wso2is1 -i $wso2_is_1_ip -w $wso2_is_2_ip -j $wso2_is_3_ip -r $rds_host"
 echo "$setup_is_command"
 # Handle any error and let the script continue.
 $setup_is_command || echo "Remote ssh command to setup IS node 1 through bastion failed."
@@ -418,7 +414,7 @@ echo ""
 echo "Running IS node 2 setup script..."
 echo "============================================"
 setup_is_command="ssh -i $key_file -o "StrictHostKeyChecking=no" -t ubuntu@$bastion_node_ip \
-    ./setup/setup-is.sh -a wso2is2 -i $wso2_is_2_ip -w $wso2_is_1_ip -r $rds_host"
+    ./setup/setup-is.sh -a wso2is2 -i $wso2_is_2_ip -w $wso2_is_1_ip -j $wso2_is_3_ip -r $rds_host"
 echo "$setup_is_command"
 # Handle any error and let the script continue.
 $setup_is_command || echo "Remote ssh command to setup IS node 2 through bastion failed."
