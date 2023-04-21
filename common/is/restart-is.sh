@@ -58,6 +58,9 @@ while getopts "c:w:m:h" opts; do
     esac
 done
 
+echo ""
+echo "carbon_home: $carbon_home"
+
 if [ ! -d $carbon_home ]; then
     echo "Please provide the Identity Server path."
     exit 1
