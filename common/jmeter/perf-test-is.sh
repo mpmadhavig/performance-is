@@ -54,7 +54,7 @@
 # Finally, execute test scenarios using the function test_scenarios
 
 # Concurrent users (these will by multiplied by the number of JMeter servers)
-default_concurrent_users="50 100 150 300 500 1000 1500 2000 2500 3000 3500 4000 4500 5000"
+default_concurrent_users="50 100 150 300 500"
 # Application heap Sizes
 default_heap_sizes="2G"
 
