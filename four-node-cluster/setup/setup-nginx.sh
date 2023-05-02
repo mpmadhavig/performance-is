@@ -99,6 +99,6 @@ sudo sed -i 's$server xxx.xxx.xxx.4:9443$server '$wso2_is_4_ip':9443$g' /etc/ngi
 echo ""
 echo "Adding workerconnection to nginx.conf file"
 echo "============================================"
-sudo sed -i 's/worker_connections 768/worker_connections 1500/g' /etc/nginx/nginx.conf || echo "error 1"
+sudo sed -i 's/worker_connections 768/worker_connections 4500/g' /etc/nginx/nginx.conf || echo "error 1"
 
 sudo service nginx restart
