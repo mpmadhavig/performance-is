@@ -382,7 +382,7 @@ $setup_bastion_node_command || echo "Remote ssh command failed."
 
 echo ""
 echo "Sleep for FD Limit"
-sleep 30m
+sleep 10m
 
 echo ""
 echo "Creating databases in RDS..."
