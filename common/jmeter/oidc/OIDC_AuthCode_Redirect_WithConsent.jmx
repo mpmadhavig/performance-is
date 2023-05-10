@@ -305,7 +305,7 @@ if (y == 0) {
           <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Redirect URL Extractor" enabled="true">
             <stringProp name="RegexExtractor.useHeaders">true</stringProp>
             <stringProp name="RegexExtractor.refname">redirectURL</stringProp>
-            <stringProp name="RegexExtractor.regex">Location:\s*(.*)</stringProp>
+            <stringProp name="RegexExtractor.regex">Location:\s*https:\/\/[^\s]*\/(authenticationendpoint\/login\.do.*)</stringProp>
             <stringProp name="RegexExtractor.template">$1$</stringProp>
             <stringProp name="RegexExtractor.default">NF</stringProp>
             <stringProp name="RegexExtractor.match_number">1</stringProp>
