@@ -148,6 +148,9 @@ while getopts "c:m:d:w:j:i:e:n:s:q:u:t:p:k:v:o:h" opts; do
     e)
         exclude_scenario_names+=("${OPTARG}")
         ;;
+    g)
+        noOfNodes=("${OPTARG}")
+        ;;
     n)
         noOfTenants=("${OPTARG}")
         ;;
@@ -533,7 +536,7 @@ function test_scenarios() {
                 mkdir -p "$report_location"
 
                 time=$(expr "$test_duration" \* 60)
-                declare -ag jmeter_params=("concurrency=$users" "time=$time" "host=$lb_host" "-Jport=$is_port")
+                declare -ag jmeter_params=("concurrency=$users" "time=$time" "host=$lb_host" "-Jport=$is_port -JnoOfNodes=$noOfNodes")
 
                 local tenantMode=${scenario[tenantMode]}
                 if [ "$tenantMode" = true ]; then
