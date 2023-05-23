@@ -75,8 +75,31 @@ sudo sed -i 's$server xxx.xxx.xxx.1:9443$server '$wso2_is_1_ip':9443$g' /etc/ngi
 sudo sed -i 's$server xxx.xxx.xxx.2:9443$server '$wso2_is_2_ip':9443$g' /etc/nginx/conf.d/is.conf || echo "error 1"
 
 echo ""
+echo "Increase Open FD Limit..."
+echo "============================================"
+echo "fs.file-max = 70000" >> /etc/sysctl.conf
+
+echo ""
+echo "Set soft and hard limit for ubuntu user..."
+echo "============================================"
+echo "ubuntu       soft    nofile   10000" >> /etc/security/limits.conf
+echo "ubuntu       hard    nofile   30000" >> /etc/security/limits.conf
+
+sudo sysctl -p
+
+# Create or edit the nginx service override file
+override_file="/etc/systemd/system/nginx.service.d/override.conf"
+echo "[Service]" > "$override_file"
+echo "LimitNOFILE=65535" >> "$override_file"
+
+sudo systemctl daemon-reload
+
+# nginx worker_rlimit_nofile Option
+echo "worker_rlimit_nofile 30000;" >> /etc/nginx/nginx.conf
+
+echo ""
 echo "Adding workerconnection to nginx.conf file"
 echo "============================================"
-sudo sed -i 's/worker_connections 768/worker_connections 1500/g' /etc/nginx/nginx.conf || echo "error 1"
+sudo sed -i 's/worker_connections 768/worker_connections 65535/g' /etc/nginx/nginx.conf || echo "error 1"
 
 sudo service nginx restart
