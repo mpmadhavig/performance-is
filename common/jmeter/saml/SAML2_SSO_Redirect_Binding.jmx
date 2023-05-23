@@ -110,11 +110,6 @@
             <stringProp name="Argument.value">${__P(noOfTenants,100)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
-          <elementProp name="enableBurst" elementType="Argument">
-            <stringProp name="Argument.name">enableBurst</stringProp>
-            <stringProp name="Argument.value">${__P(enableBurst,true)}</stringProp>
-            <stringProp name="Argument.metadata">=</stringProp>
-          </elementProp>
           <elementProp name="noOfBurst" elementType="Argument">
             <stringProp name="Argument.name">noOfBurst</stringProp>
             <stringProp name="Argument.value">${__P(noOfBurst,10)}</stringProp>
