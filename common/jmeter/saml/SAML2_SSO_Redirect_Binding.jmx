@@ -417,8 +417,8 @@ ${password}
         <longProp name="ThreadGroup.start_time">1513058215000</longProp>
         <longProp name="ThreadGroup.end_time">1513058215000</longProp>
         <boolProp name="ThreadGroup.scheduler">true</boolProp>
-        <stringProp name="ThreadGroup.duration">20</stringProp>
-        <stringProp name="ThreadGroup.delay">20</stringProp>
+        <stringProp name="ThreadGroup.duration">180</stringProp>
+        <stringProp name="ThreadGroup.delay">360</stringProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
       </ThreadGroup>
       <hashTree>
