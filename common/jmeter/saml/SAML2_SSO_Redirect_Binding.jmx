@@ -231,9 +231,10 @@ vars.put(&quot;newSAML&quot;, out);
           <boolProp name="resetInterpreter">false</boolProp>
           <stringProp name="parameters"></stringProp>
           <stringProp name="filename"></stringProp>
-          <stringProp name="script">int numOfNodes = Integer.parseInt(vars.get(&quot;numOfNodes&quot;));
+          <stringProp name="script">int numOfNodes = Integer.parseInt(vars.get(&quot;noOfNodes&quot;));
 int x = Integer.parseInt(vars.get(&quot;spId&quot;));
 int y = x - (x/numOfNodes)*numOfNodes;
+
 if (y == 0) {
     vars.put(&quot;serverNode&quot;, &quot;node1&quot;);
 } else if (y == 1) {
