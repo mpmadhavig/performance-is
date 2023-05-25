@@ -125,7 +125,7 @@ function usage() {
     echo ""
 }
 
-while getopts "c:m:d:w:j:i:e:n:s:q:u:t:p:k:v:o:h" opts; do
+while getopts "c:m:d:w:j:i:e:g:n:s:q:u:t:p:k:v:o:h" opts; do
     case $opts in
     c)
         concurrent_users+=("${OPTARG}")
