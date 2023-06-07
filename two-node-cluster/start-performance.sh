@@ -345,6 +345,9 @@ if [[ -z $rds_host ]]; then
     exit 1
 fi
 
+echo "Bastion Sleep 30m"
+sleep 30m
+
 echo ""
 echo "Copying files to Bastion node..."
 echo "============================================"
