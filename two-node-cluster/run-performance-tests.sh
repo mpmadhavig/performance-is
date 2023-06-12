@@ -32,7 +32,7 @@ db_password="wso2carbon"
 . $script_dir/perf-test-is.sh
 
 # Source test scenarios
-source test_scenarios.sh
+source $script_dir/test_scenarios.sh
 
 function before_execute_test_scenario() {
 
