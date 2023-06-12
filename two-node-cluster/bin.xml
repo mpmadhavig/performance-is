@@ -40,6 +40,15 @@
 
     <fileSets>
         <fileSet>
+            <directory>../common/deployment</directory>
+            <outputDirectory>.</outputDirectory>
+            <filtered>true</filtered>
+            <fileMode>0775</fileMode>
+            <includes>
+                <include>test_scenarios.sh</include>
+            </includes>
+        </fileSet>
+        <fileSet>
             <directory>setup</directory>
             <outputDirectory>setup</outputDirectory>
             <filtered>true</filtered>
