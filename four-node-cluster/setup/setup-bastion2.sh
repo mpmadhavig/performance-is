@@ -19,7 +19,6 @@
 # Setup the bastion node to be used as the JMeter client.
 # ----------------------------------------------------------------------------
 
-no_of_nodes=""
 wso2_is_1_ip=""
 wso2_is_2_ip=""
 wso2_is_3_ip=""
@@ -47,11 +46,8 @@ function usage() {
     echo ""
 }
 
-while getopts "n:w:i:j:k:l:r:h" opts; do
+while getopts "w:i:j:k:l:r:h" opts; do
     case $opts in
-    n)
-        no_of_nodes=${OPTARG}
-        ;;
     w)
         wso2_is_1_ip=${OPTARG}
         ;;
@@ -80,6 +76,26 @@ while getopts "n:w:i:j:k:l:r:h" opts; do
         ;;
     esac
 done
+
+if [[ -z $wso2_is_1_ip ]]; then
+    echo "Please provide the private IP of WSO2 IS node 1."
+    exit 1
+fi
+
+if [[ -z $wso2_is_2_ip ]]; then
+    echo "Please provide the private IP of WSO2 IS node 2."
+    exit 1
+fi
+
+if [[ -z $wso2_is_3_ip ]]; then
+    echo "Please provide the private IP of WSO2 IS node 3."
+    exit 1
+fi
+
+if [[ -z $wso2_is_4_ip ]]; then
+    echo "Please provide the private IP of WSO2 IS node 4."
+    exit 1
+fi
 
 if [[ -z $lb_host ]]; then
     echo "Please provide the private hostname of Load balancer instance."
@@ -111,45 +127,16 @@ echo ""
 echo "Running JMeter setup script..."
 echo "============================================"
 cd /home/ubuntu || exit 0
-
-if [[ -z $no_of_nodes ]]; then
-    echo "Please provide the number of IS nodes in the deployment."
-    exit 1
-elif [[ $no_of_nodes -eq 2 ]]; then
-    workspace/setup/setup-jmeter-client-is.sh -g -k /home/ubuntu/private_key.pem \
-                -i /home/ubuntu \
-                -c /home/ubuntu \
-                -f /home/ubuntu/apache-jmeter-*.tgz \
-                -a $wso2is_1_host_alias -n "$wso2_is_1_ip" \
-                -a $wso2is_2_host_alias -n "$wso2_is_2_ip" \
-                -a $lb_alias -n "$lb_host"\
-                -a rds -n "$rds_host"
-elif [[ $no_of_nodes -eq 3 ]]; then
-    workspace/setup/setup-jmeter-client-is.sh -g -k /home/ubuntu/private_key.pem \
-                -i /home/ubuntu \
-                -c /home/ubuntu \
-                -f /home/ubuntu/apache-jmeter-*.tgz \
-                -a $wso2is_1_host_alias -n "$wso2_is_1_ip" \
-                -a $wso2is_2_host_alias -n "$wso2_is_2_ip" \
-                -a $wso2is_3_host_alias -n "$wso2_is_3_ip" \
-                -a $lb_alias -n "$lb_host"\
-                -a rds -n "$rds_host"
-elif [[ $no_of_nodes -eq 4 ]]; then
-    workspace/setup/setup-jmeter-client-is.sh -g -k /home/ubuntu/private_key.pem \
-                -i /home/ubuntu \
-                -c /home/ubuntu \
-                -f /home/ubuntu/apache-jmeter-*.tgz \
-                -a $wso2is_1_host_alias -n "$wso2_is_1_ip" \
-                -a $wso2is_2_host_alias -n "$wso2_is_2_ip" \
-                -a $wso2is_3_host_alias -n "$wso2_is_3_ip" \
-                -a $wso2is_4_host_alias -n "$wso2_is_4_ip" \
-                -a $lb_alias -n "$lb_host"\
-                -a rds -n "$rds_host"
-else
-    echo "Invalid value for no_of_nodes. Please provide a valid number."
-    exit 1
-fi
-
+workspace/setup/setup-jmeter-client-is.sh -g -k /home/ubuntu/private_key.pem \
+            -i /home/ubuntu \
+            -c /home/ubuntu \
+            -f /home/ubuntu/apache-jmeter-*.tgz \
+            -a $wso2is_1_host_alias -n "$wso2_is_1_ip" \
+            -a $wso2is_2_host_alias -n "$wso2_is_2_ip" \
+            -a $wso2is_3_host_alias -n "$wso2_is_3_ip" \
+            -a $wso2is_4_host_alias -n "$wso2_is_4_ip" \
+            -a $lb_alias -n "$lb_host"\
+            -a rds -n "$rds_host"
 sudo chown -R ubuntu:ubuntu workspace
 sudo chown -R ubuntu:ubuntu apache-jmeter-*
 sudo chown -R ubuntu:ubuntu /tmp/jmeter.log
@@ -164,12 +151,4 @@ sudo -u ubuntu scp /home/ubuntu/workspace/setup/setup-nginx.sh $lb_alias:/home/u
 echo ""
 echo "Setting up NGinx..."
 echo "============================================"
-
-if [[ $no_of_nodes -eq 2 ]]; then
-    sudo -u ubuntu ssh $lb_alias ./setup-nginx.sh -i "$wso2_is_1_ip" -w "$wso2_is_2_ip"
-elif [[ $no_of_nodes -eq 3 ]]; then
-    sudo -u ubuntu ssh $lb_alias ./setup-nginx.sh -i "$wso2_is_1_ip" -w "$wso2_is_2_ip" -j "$wso2_is_3_ip"
-elif [[ $no_of_nodes -eq 4 ]]; then
-    sudo -u ubuntu ssh $lb_alias ./setup-nginx.sh -i "$wso2_is_1_ip" -w "$wso2_is_2_ip" -j "$wso2_is_3_ip" -k "$wso2_is_4_ip"
-fi
-
+sudo -u ubuntu ssh $lb_alias ./setup-nginx.sh -i "$wso2_is_1_ip" -w "$wso2_is_2_ip" -j "$wso2_is_3_ip" -k "$wso2_is_4_ip"

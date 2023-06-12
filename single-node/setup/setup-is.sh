@@ -64,6 +64,26 @@ copy_is_server_resources_command="scp -r -i ~/private_key.pem -o "StrictHostKeyC
 copy_is_server_command="scp -i ~/private_key.pem -o "StrictHostKeyChecking=no" /home/ubuntu/wso2is.zip ubuntu@$wso2_is_ip:/home/ubuntu/wso2is.zip"
 copy_mysql_connector_command="scp -i ~/private_key.pem -o "StrictHostKeyChecking=no" /home/ubuntu/mysql-connector-java-*.jar ubuntu@$wso2_is_ip:/home/ubuntu/"
 
+sudo -u ubuntu scp setup/update-is-conf.sh "$is_host_alias":/home/ubuntu/
+sudo -u ubuntu scp -r setup/resources/ "$is_host_alias":/home/ubuntu/
+sudo -u ubuntu scp wso2is.zip "$is_host_alias":/home/ubuntu/
+sudo -u ubuntu scp mysql-connector-java-*.jar "$is_host_alias":/home/ubuntu/
+
+sudo -u ubuntu ssh "$is_host_alias" mkdir sar setup
+sudo -u ubuntu scp workspace/setup/setup-common.sh "$is_host_alias":/home/ubuntu/setup/
+sudo -u ubuntu scp workspace/sar/install-sar.sh "$is_host_alias":/home/ubuntu/sar/
+sudo -u ubuntu scp workspace/is/restart-is.sh "$is_host_alias":/home/ubuntu/
+sudo -u ubuntu ssh "$is_host_alias" sudo ./setup/setup-common.sh -p zip -p jq -p bc
+
+setup_is_node_command="ssh -i ~/private_key.pem -o "StrictHostKeyChecking=no" -t ubuntu@$wso2_is_1_ip \
+  ./update-is-conf.sh -r $db_instance_ip -w $wso2_is_1_ip -i $wso2_is_2_ip -j $wso2_is_3_ip -k $wso2_is_4_ip"
+
+echo ""
+echo "Running update-is-conf script: $setup_is_node_command"
+echo "============================================"
+# Handle any error and let the script continue.
+$setup_is_node_command || echo "Remote ssh command to setup is node failed."
+
 echo ""
 echo "Copying Is server setup files..."
 echo "$copy_is_server_edit_command"

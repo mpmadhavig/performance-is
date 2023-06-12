@@ -34,10 +34,13 @@ function usage() {
     echo ""
 }
 
-while getopts "a:w:i:j:k:r:h" opts; do
+while getopts "a:n:w:i:j:k:r:h" opts; do
     case $opts in
     a)
         is_host_alias=${OPTARG}
+        ;;
+    n)
+        no_of_nodes=${OPTARG}
         ;;
     i)
         wso2_is_1_ip=${OPTARG}
@@ -70,26 +73,6 @@ if [[ -z $is_host_alias ]]; then
     exit 1
 fi
 
-if [[ -z $wso2_is_1_ip ]]; then
-    echo "Please provide the WSO2 IS node 1 IP address."
-    exit 1
-fi
-
-if [[ -z $wso2_is_2_ip ]]; then
-    echo "Please provide the WSO2 IS node 2 IP address."
-    exit 1
-fi
-
-if [[ -z $wso2_is_3_ip ]]; then
-    echo "Please provide the WSO2 IS node 3 IP address."
-    exit 1
-fi
-
-if [[ -z $wso2_is_4_ip ]]; then
-    echo "Please provide the WSO2 IS node 4 IP address."
-    exit 1
-fi
-
 if [[ -z $db_instance_ip ]]; then
     echo "Please provide the db instance IP address."
     exit 1
@@ -110,8 +93,24 @@ sudo -u ubuntu scp workspace/sar/install-sar.sh "$is_host_alias":/home/ubuntu/sa
 sudo -u ubuntu scp workspace/is/restart-is.sh "$is_host_alias":/home/ubuntu/
 sudo -u ubuntu ssh "$is_host_alias" sudo ./setup/setup-common.sh -p zip -p jq -p bc
 
-setup_is_node_command="ssh -i ~/private_key.pem -o "StrictHostKeyChecking=no" -t ubuntu@$wso2_is_1_ip \
-  ./update-is-conf.sh -r $db_instance_ip -w $wso2_is_1_ip -i $wso2_is_2_ip -j $wso2_is_3_ip -k $wso2_is_4_ip"
+setup_is_node_command=""
+
+if [[ -z $no_of_nodes ]]; then
+    echo "Please provide the number of IS nodes in the deployment."
+    exit 1
+elif [[ $no_of_nodes -eq 2 ]]; then
+    setup_is_node_command="ssh -i ~/private_key.pem -o "StrictHostKeyChecking=no" -t ubuntu@$wso2_is_1_ip \
+      ./update-is-conf.sh -r $db_instance_ip -w $wso2_is_1_ip -i $wso2_is_2_ip"
+elif [[ $no_of_nodes -eq 3 ]]; then
+    setup_is_node_command="ssh -i ~/private_key.pem -o "StrictHostKeyChecking=no" -t ubuntu@$wso2_is_1_ip \
+      ./update-is-conf.sh -r $db_instance_ip -w $wso2_is_1_ip -i $wso2_is_2_ip -j $wso2_is_3_ip"
+elif [[ $no_of_nodes -eq 4 ]]; then
+    setup_is_node_command="ssh -i ~/private_key.pem -o "StrictHostKeyChecking=no" -t ubuntu@$wso2_is_1_ip \
+      ./update-is-conf.sh -r $db_instance_ip -w $wso2_is_1_ip -i $wso2_is_2_ip -j $wso2_is_3_ip -k $wso2_is_4_ip"
+else
+    echo "Invalid value for no_of_nodes. Please provide a valid number."
+    exit 1
+fi
 
 echo ""
 echo "Running update-is-conf script: $setup_is_node_command"

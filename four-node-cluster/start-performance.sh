@@ -421,7 +421,7 @@ echo ""
 echo "Running IS node 1 setup script..."
 echo "============================================"
 setup_is_command="ssh -i $key_file -o "StrictHostKeyChecking=no" -t ubuntu@$bastion_node_ip \
-    ./setup/setup-is.sh -a wso2is1 -i $wso2_is_1_ip -w $wso2_is_2_ip -j $wso2_is_3_ip -k $wso2_is_4_ip -r $rds_host"
+    ./setup/setup-is.sh -a wso2is1 -n  -i $wso2_is_1_ip -w $wso2_is_2_ip -j $wso2_is_3_ip -k $wso2_is_4_ip -r $rds_host"
 echo "$setup_is_command"
 # Handle any error and let the script continue.
 $setup_is_command || echo "Remote ssh command to setup IS node 1 through bastion failed."
