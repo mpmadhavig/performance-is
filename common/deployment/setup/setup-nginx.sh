@@ -24,6 +24,7 @@ function usage() {
     echo "Usage: "
     echo "$0 -i <IS_NODE_1_IP> -w <IS_NODE_2_IP>"
     echo ""
+    echo "-n: The number of nodes in the deployment."
     echo "-i: The IP of wso2is node 1."
     echo "-w: The IP of wso2is node 2."
     echo "-j: The IP of wso2is node 3."
@@ -32,8 +33,11 @@ function usage() {
     echo ""
 }
 
-while getopts "i:w:j:k:h" opts; do
+while getopts "n:i:w:j:k:h" opts; do
     case $opts in
+    n)
+        no_of_nodes=${OPTARG}
+        ;;
     i)
         wso2_is_1_ip=("${OPTARG}")
         ;;
@@ -57,31 +61,6 @@ while getopts "i:w:j:k:h" opts; do
     esac
 done
 
-if [[ -z $wso2_is_1_ip ]]; then
-    echo "Please provide the WSO2 IS node 1 ip address."
-    exit 1
-fi
-
-if [[ -z $wso2_is_2_ip ]]; then
-    echo "Please provide the WSO2 IS node 2 ip address."
-    exit 1
-fi
-
-if [[ -z $wso2_is_3_ip ]]; then
-    echo "Please provide the WSO2 IS node 3 ip address."
-    exit 1
-fi
-
-if [[ -z $wso2_is_4_ip ]]; then
-    echo "Please provide the WSO2 IS node 4 ip address."
-    exit 1
-fi
-
-echo $wso2_is_1_ip
-echo $wso2_is_2_ip
-echo $wso2_is_3_ip
-echo $wso2_is_4_ip
-
 echo ""
 echo "Coping files..."
 echo "============================================"
@@ -91,10 +70,22 @@ sudo cp resources/is.conf /etc/nginx/conf.d/
 echo ""
 echo "Adding IS IPs to conf file..."
 echo "============================================"
-sudo sed -i 's$server xxx.xxx.xxx.1:9443$server '$wso2_is_1_ip':9443$g' /etc/nginx/conf.d/is.conf || echo "error 1"
-sudo sed -i 's$server xxx.xxx.xxx.2:9443$server '$wso2_is_2_ip':9443$g' /etc/nginx/conf.d/is.conf || echo "error 1"
-sudo sed -i 's$server xxx.xxx.xxx.3:9443$server '$wso2_is_3_ip':9443$g' /etc/nginx/conf.d/is.conf || echo "error 1"
-sudo sed -i 's$server xxx.xxx.xxx.4:9443$server '$wso2_is_4_ip':9443$g' /etc/nginx/conf.d/is.conf || echo "error 1"
+
+if [[ -z $no_of_nodes ]]; then
+    echo "Please provide the number of IS nodes in the deployment."
+    exit 1
+fi
+
+if [[ $no_of_nodes -gt 1 ]]; then
+    sudo sed -i 's$server xxx.xxx.xxx.1:9443$server '$wso2_is_1_ip':9443$g' /etc/nginx/conf.d/is.conf || echo "error 1"
+    sudo sed -i 's$server xxx.xxx.xxx.2:9443$server '$wso2_is_2_ip':9443$g' /etc/nginx/conf.d/is.conf || echo "error 1"
+fi
+if [[ $no_of_nodes -gt 2 ]]; then
+    sudo sed -i 's$server xxx.xxx.xxx.3:9443$server '$wso2_is_3_ip':9443$g' /etc/nginx/conf.d/is.conf || echo "error 1"
+fi
+if [[ $no_of_nodes -gt 3 ]]; then
+    sudo sed -i 's$server xxx.xxx.xxx.4:9443$server '$wso2_is_4_ip':9443$g' /etc/nginx/conf.d/is.conf || echo "error 1"
+fi
 
 echo ""
 echo "Increase Open FD Limit..."

@@ -166,10 +166,10 @@ echo "Setting up NGinx..."
 echo "============================================"
 
 if [[ $no_of_nodes -eq 2 ]]; then
-    sudo -u ubuntu ssh $lb_alias ./setup-nginx.sh -i "$wso2_is_1_ip" -w "$wso2_is_2_ip"
+    sudo -u ubuntu ssh $lb_alias ./setup-nginx.sh -n "$no_of_nodes" -i "$wso2_is_1_ip" -w "$wso2_is_2_ip"
 elif [[ $no_of_nodes -eq 3 ]]; then
-    sudo -u ubuntu ssh $lb_alias ./setup-nginx.sh -i "$wso2_is_1_ip" -w "$wso2_is_2_ip" -j "$wso2_is_3_ip"
+    sudo -u ubuntu ssh $lb_alias ./setup-nginx.sh -n "$no_of_nodes" -i "$wso2_is_1_ip" -w "$wso2_is_2_ip" -j "$wso2_is_3_ip"
 elif [[ $no_of_nodes -eq 4 ]]; then
-    sudo -u ubuntu ssh $lb_alias ./setup-nginx.sh -i "$wso2_is_1_ip" -w "$wso2_is_2_ip" -j "$wso2_is_3_ip" -k "$wso2_is_4_ip"
+    sudo -u ubuntu ssh $lb_alias ./setup-nginx.sh -n "$no_of_nodes" -i "$wso2_is_1_ip" -w "$wso2_is_2_ip" -j "$wso2_is_3_ip" -k "$wso2_is_4_ip"
 fi
 
