@@ -388,6 +388,7 @@ function print_durations() {
             echo "$name"
         done | sort
     ))
+      echo "sorted_names: ${sorted_names[@]}"
     if [[ ${#sorted_names[@]} -gt 0 ]]; then
         # Count scenarios
         local total_counter=0
@@ -413,6 +414,7 @@ function run_test_data_scripts() {
 #    declare -a scripts=("TestData_Add_Super_Tenant_Users.jmx" "TestData_Add_OAuth_Apps.jmx" "TestData_Add_SAML_Apps.jmx" "TestData_Add_Tenants.jmx" "TestData_Add_Tenant_Users.jmx")
     setup_dir="/home/ubuntu/workspace/jmeter/setup"
 
+    echo "Running test data setup scripts"
     for script in "${scripts[@]}"; do
         script_file="$setup_dir/$script"
         command="jmeter -Jhost=$lb_host -Jport=$is_port -JtokenIssuer=$token_issuer -JjwtTokenUserPassword=$jwt_token_user_password -JjwtTokenClientSecret=$jwt_token_client_secret -n -t $script_file"
@@ -536,6 +538,7 @@ function initiailize_test() {
         cp "$0" results
         mv test-metadata.json results/
 
+        echo "Running test data setup scripts"
         run_test_data_scripts
         #run_tenant_test_data_scripts
     fi
