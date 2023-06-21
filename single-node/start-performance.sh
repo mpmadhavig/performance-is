@@ -361,7 +361,7 @@ echo ""
 echo "Running performance tests..."
 echo "============================================"
 scp -i "$key_file" -o StrictHostKeyChecking=no run-performance-tests.sh ubuntu@"$bastion_node_ip":/home/ubuntu/workspace/jmeter
-run_performance_tests_command="./workspace/jmeter/run-performance-tests.sh ${run_performance_tests_options[@]}"
+run_performance_tests_command="./workspace/jmeter/run-performance-tests.sh -t ${run_performance_tests_options[@]}"
 run_remote_tests="ssh -i $key_file -o "StrictHostKeyChecking=no" -t ubuntu@$bastion_node_ip $run_performance_tests_command"
 echo "$run_remote_tests"
 $run_remote_tests || echo "Remote test ssh command failed."

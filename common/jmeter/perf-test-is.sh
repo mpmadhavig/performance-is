@@ -161,7 +161,7 @@ while getopts "c:m:d:w:r:j:i:e:g:n:s:q:u:t:p:k:v:x:o:y:h" opts; do
         exclude_scenario_names+=("${OPTARG}")
         ;;
     g)
-        noOfNodes=("${OPTARG}")
+        noOfNodes=${OPTARG}
         ;;
     n)
         noOfTenants=("${OPTARG}")
@@ -210,14 +210,6 @@ done
 # Validate options
 number_regex='^[0-9]+$'
 heap_regex='^[0-9]+[MG]$'
-
-echo "perf-test-is.sh : Starting Identity Server Performance Test"
-echo "Mode : $mode"
-echo "Number of Nodes : $noOfNodes"
-echo "token_issuer : $token_issuer"
-echo "jwt_token_user_password : $jwt_token_user_password"
-echo "jwt_token_client_secret : $jwt_token_client_secret"
-echo "enable_burst : $enable_burst"
 
 # Check concurrency level
 if [ "$concurrency" = "50-500" ]; then
