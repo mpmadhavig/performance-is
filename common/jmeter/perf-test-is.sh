@@ -256,6 +256,9 @@ else
     burstTraffic=0
 fi
 
+echo "perf-test-is.sh : Starting Identity Server Performance Test"
+echo "Mode : $mode"
+
 # Check token type
 if [ "$token_issuer" = "Opaque" ]; then
     token_issuer="Default"
@@ -265,7 +268,7 @@ fi
 
 declare -ag heap_sizes_array
 if [ ${#heap_sizes[@]} -eq 0 ]; then
-    heap_sizes_array=( $default_heap_sizes )
+    heap_sizes_array_sizes=( $default_heap )
 else
     heap_sizes_array=( ${heap_sizes[@]} )
 fi
@@ -460,10 +463,12 @@ function initiailize_test() {
     fi
     
     if [[ ! -z $mode ]]; then
+        echo "Filtering scenarios based on mode: $mode"
         declare -n scenario
         for scenario in ${!test_scenario@}; do
             scenario[skip]=true
             modeValues=${scenario[modes]}
+            echo "Scenario: ${scenario[name]} - Modes: $modeValues"
             for i in $modeValues; do
                 if [ "$i" == $mode ]; then
                     scenario[skip]=false
