@@ -88,6 +88,7 @@ spCount=10
 idpCount=1
 userCount=1000
 mode=""
+noOfNodes=1
 
 # JWT Bearer Grant Flow
 jwt_token_client_secret=""
@@ -216,7 +217,7 @@ echo "Number of Nodes : $noOfNodes"
 echo "token_issuer : $token_issuer"
 echo "jwt_token_user_password : $jwt_token_user_password"
 echo "jwt_token_client_secret : $jwt_token_client_secret"
-echi "enable_burst : $enable_burst"
+echo "enable_burst : $enable_burst"
 
 # Check concurrency level
 if [ "$concurrency" = "50-500" ]; then
