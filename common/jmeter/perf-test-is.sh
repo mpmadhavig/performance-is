@@ -468,7 +468,9 @@ function initiailize_test() {
             modeValues=${scenario[modes]}
             echo "Scenario: ${scenario[name]} - Modes: $modeValues"
             for i in $modeValues; do
+                echo "Mode: $i"
                 if [ "$i" == $mode ]; then
+                    echo "Mode matched"
                     scenario[skip]=false
                     break
                 fi
