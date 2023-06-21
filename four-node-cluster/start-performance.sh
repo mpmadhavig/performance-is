@@ -70,7 +70,7 @@ function usage() {
     echo "-v: The token issuer type."
     echo "-q: User tag who triggered the Jenkins build"
     echo "-r: Concurrency type (50-500, 500-3000, 50-3000)"
-    echo "-m: Enable burst traffic"
+    echo "-x: Enable burst traffic"
     echo "-j: The path to JMeter setup."
     echo "-n: The is server zip"
     echo "-u: The database username. Default: $default_db_username."
@@ -86,7 +86,7 @@ function usage() {
     echo ""
 }
 
-while getopts "q:k:c:j:n:u:p:d:e:i:b:w:r:y:g:t:m:v:h" opts; do
+while getopts "q:k:c:j:n:u:p:d:e:i:b:w:r:y:g:t:x:v:h" opts; do
     case $opts in
     q)
         user_tag=${OPTARG}
@@ -136,7 +136,7 @@ while getopts "q:k:c:j:n:u:p:d:e:i:b:w:r:y:g:t:m:v:h" opts; do
     t)
         mode=${OPTARG}
         ;;
-    m)
+    x)
         enable_burst=${OPTARG}
         ;;
     v)
