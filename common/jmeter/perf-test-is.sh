@@ -483,8 +483,10 @@ function initiailize_test() {
     declare -n scenario
     local all_scenarios=""
     for scenario in ${!test_scenario@}; do
+        echo "Scenario: ${scenario[name]}"
         local skip=${scenario[skip]}
         if [ "$skip" = true ]; then
+            echo "Skipping scenario: ${scenario[name]}"
             continue
         fi
         all_scenarios+=$(jq -n \
