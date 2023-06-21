@@ -210,6 +210,14 @@ done
 number_regex='^[0-9]+$'
 heap_regex='^[0-9]+[MG]$'
 
+echo "perf-test-is.sh : Starting Identity Server Performance Test"
+echo "Mode : $mode"
+echo "Number of Nodes : $noOfNodes"
+echo "token_issuer : $token_issuer"
+echo "jwt_token_user_password : $jwt_token_user_password"
+echo "jwt_token_client_secret : $jwt_token_client_secret"
+echi "enable_burst : $enable_burst"
+
 # Check concurrency level
 if [ "$concurrency" = "50-500" ]; then
     default_concurrent_users="50 100 150 300 500"
@@ -255,9 +263,6 @@ if [ "$enable_burst" = true ]; then
 else
     burstTraffic=0
 fi
-
-echo "perf-test-is.sh : Starting Identity Server Performance Test"
-echo "Mode : $mode"
 
 # Check token type
 if [ "$token_issuer" = "Opaque" ]; then
