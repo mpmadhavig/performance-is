@@ -382,6 +382,8 @@ function print_durations() {
         time_header="Actual"
     fi
 
+    echo "Hi Hello 2"
+    echo "scenario_counter: ${scenario_counter[@]}"
     echo "$time_header execution times:"
     local sorted_names=($(
         for name in "${!scenario_counter[@]}"; do
@@ -484,6 +486,7 @@ function initiailize_test() {
     echo "Saving test metadata..."
     declare -n scenario
     local all_scenarios=""
+    echo "test_scenario: ${!test_scenario@}"
     for scenario in ${!test_scenario@}; do
         echo "Scenario: ${scenario[name]}"
         local skip=${scenario[skip]}
@@ -498,6 +501,7 @@ function initiailize_test() {
         '. | .["name"]=$name | .["display_name"]=$display_name | .["description"]=$description')
     done
 
+    echo "Hi Hello 3"
     local test_parameters_json='.'
     test_parameters_json+=' | .["test_duration"]=$test_duration'
     test_parameters_json+=' | .["warmup_time"]=$warmup_time'
@@ -513,7 +517,9 @@ function initiailize_test() {
         --argjson concurrent_users "$(printf '%s\n' "${concurrent_users_array[@]}" | jq -nR '[inputs]')" \
         "$test_parameters_json" > test-metadata.json
 
+    echo "Hi Hello 4"
     if [ "$estimate" = false ]; then
+        echo "Hi Hello 5"
         jmeter_dir=""
         for dir in "$HOME"/apache-jmeter*; do
             [ -d "$dir" ] && jmeter_dir="$dir" && break
@@ -560,6 +566,8 @@ function test_scenarios() {
     initiailize_test
     for heap in "${heap_sizes_array[@]}"; do
         declare -ng scenario
+        echo "Hi Hello"
+        echo "test_scenario: ${!test_scenario@}"
         for scenario in ${!test_scenario@}; do
             local skip=${scenario[skip]}
             if [ "$skip" = true ]; then
@@ -569,6 +577,7 @@ function test_scenarios() {
             local jmx_file=${scenario[jmx]}
             for users in "${concurrent_users_array[@]}"; do
                 if [ "$estimate" = true ]; then
+                    echo "Estimated time for $scenario_name with $users users and $heap heap size is $estimated_processing_time_in_between_tests minutes"
                     record_scenario_duration "$scenario_name" $((test_duration * 60 + estimated_processing_time_in_between_tests))
                     continue
                 fi
