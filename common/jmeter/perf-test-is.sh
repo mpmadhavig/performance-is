@@ -210,12 +210,17 @@ done
 number_regex='^[0-9]+$'
 heap_regex='^[0-9]+[MG]$'
 
+echo "concurrency: $concurrency"
+
 # Check concurrency level
-if [ "$concurrency" = "50-500" ]; then
+if [ "$concurrency" == "50-500" ]; then
+    echo "Running tests for concurrency level 50-500"
     default_concurrent_users="50 100 150 300 500"
-elif [ "$concurrency" = "500-3000" ]; then
+elif [ "$concurrency" == "500-3000" ]; then
+    echo "Running tests for concurrency level 500-3000"
     default_concurrent_users="500 1000 1500 2000 2500 3000"
 else
+    echo "Running tests for concurrency level 50-3000"
     default_concurrent_users="50 100 150 300 500 1000 1500 2000 2500 3000"
 fi
 
