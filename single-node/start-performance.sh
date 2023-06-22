@@ -85,7 +85,7 @@ function usage() {
     echo ""
 }
 
-while getopts "q:k:c:j:n:u:p:i:b:w:r:y:g:t:x:v:h" opts; do
+while getopts "q:k:c:j:n:u:p:i:b:w:r:y:g:t:m:v:h" opts; do
     case $opts in
     q)
         user_tag=${OPTARG}
@@ -129,7 +129,7 @@ while getopts "q:k:c:j:n:u:p:i:b:w:r:y:g:t:x:v:h" opts; do
     t)
         mode=${OPTARG}
         ;;
-    x)
+    m)
         enable_burst=${OPTARG}
         ;;
     v)
