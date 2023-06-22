@@ -85,7 +85,7 @@ function usage() {
     echo ""
 }
 
-while getopts "q:k:c:j:n:u:p:i:b:w:h" opts; do
+while getopts "q:k:c:j:n:u:p:i:b:w:r:y:g:t:m:v:h" opts; do
     case $opts in
     q)
         user_tag=${OPTARG}
@@ -117,6 +117,24 @@ while getopts "q:k:c:j:n:u:p:i:b:w:h" opts; do
     w)
         minimum_stack_creation_wait_time=${OPTARG}
         ;;
+    r)
+        concurrency=${OPTARG}
+        ;;
+    y)
+        jwt_token_client_secret=${OPTARG}
+        ;;
+    g)
+        jwt_token_user_password=${OPTARG}
+        ;;
+    t)
+        mode=${OPTARG}
+        ;;
+    m)
+        enable_burst=${OPTARG}
+        ;;
+    v)
+        token_issuer=${OPTARG}
+        ;;
     h)
         usage
         exit 0
@@ -130,7 +148,7 @@ done
 shift "$((OPTIND - 1))"
 
 run_performance_tests_options="$@"
-run_performance_tests_options+=(" -g $no_of_nodes")
+run_performance_tests_options+=(" -r $concurrency -g $no_of_nodes -v $mode -k $jwt_token_client_secret -o $jwt_token_user_password -b $enable_burst -y $token_issuer")
 
 if [[ -z $user_tag ]]; then
     echo "Please provide the user tag."
