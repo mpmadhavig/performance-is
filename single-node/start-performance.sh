@@ -132,6 +132,29 @@ shift "$((OPTIND - 1))"
 run_performance_tests_options="$@"
 run_performance_tests_options+=(" -g $no_of_nodes")
 
+# Define an associative array to store excluded options
+declare -A excluded_options=(
+  ["-i ${wso2_is_instance_type}"]=1
+  ["-q ${user_tag}"]=1
+)
+
+# Create a new array to store the modified options
+modified_options=()
+
+# Iterate over the options and add them to the modified options array,
+# excluding the options present in the excluded_options array
+while [[ $# -gt 0 ]]; do
+  option="$1"
+  if [[ -z "${excluded_options[$option]}" ]]; then
+    modified_options+=("$option")
+  fi
+  shift
+done
+
+# Pass the modified options to the command
+run_performance_tests_options "${modified_options[@]}"
+
+
 if [[ -z $user_tag ]]; then
     echo "Please provide the user tag."
     exit 1
