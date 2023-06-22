@@ -85,7 +85,7 @@ function usage() {
     echo ""
 }
 
-while getopts "q:k:c:j:n:u:p:i:b:w:r:y:g:t:x:z:h" opts; do
+while getopts "q:k:c:j:n:u:p:i:b:w:r:y:g:t:x:v:h" opts; do
     case $opts in
     q)
         user_tag=${OPTARG}
@@ -132,7 +132,7 @@ while getopts "q:k:c:j:n:u:p:i:b:w:r:y:g:t:x:z:h" opts; do
     x)
         enable_burst=${OPTARG}
         ;;
-    z)
+    v)
         token_issuer=${OPTARG}
         ;;
     h)
@@ -148,7 +148,7 @@ done
 shift "$((OPTIND - 1))"
 
 run_performance_tests_options="$@"
-run_performance_tests_options+=(" -r $concurrency -g $no_of_nodes -v $mode -k $jwt_token_client_secret -o $jwt_token_user_password -b $enable_burst -z $token_issuer")
+run_performance_tests_options+=(" -r $concurrency -g $no_of_nodes -v $mode -k $jwt_token_client_secret -o $jwt_token_user_password -b $enable_burst -y $token_issuer")
 
 if [[ -z $user_tag ]]; then
     echo "Please provide the user tag."
