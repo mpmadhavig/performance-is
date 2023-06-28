@@ -37,7 +37,7 @@ scenarios = {"Authenticate Super Tenant User":  "Authenticate",
              "OIDC Password Grant Type": "GetToken_Password_Grant",
              "OIDC Auth Code Request Path Authenticator With Consent": "Get tokens",
              "SAML2 SSO Redirect Binding": "Identity Provider Login",
-             "Jwt Grant Type": "Jwt Grant Type"}
+             "Jwt Grant Type": "GetToken_Jwt_Grant"}
 
 scenarios_critical_requests = scenarios.copy()
 

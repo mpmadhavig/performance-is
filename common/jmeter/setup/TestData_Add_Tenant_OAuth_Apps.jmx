@@ -244,6 +244,7 @@ if (y == 0) {
         &quot;client_credentials&quot;,&#xd;
         &quot;refresh_token&quot;,&#xd;
         &quot;urn:ietf:params:oauth:grant-type:saml2-bearer&quot;,&#xd;
+        &quot;urn:ietf:params:oauth:grant-type:jwt-bearer&quot;&#xd;
         &quot;iwa:ntlm&quot;&#xd;
       ],&#xd;
       &quot;idToken&quot;: {&#xd;
