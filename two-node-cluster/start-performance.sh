@@ -159,7 +159,7 @@ shift "$((OPTIND - 1))"
 
 echo "Run mode: $mode"
 run_performance_tests_options="$@"
-run_performance_tests_options+=(" -r $concurrency -g $no_of_nodes -v $mode -k $jwt_token_client_secret -o $jwt_token_user_password -b $enable_burst -y $token_issuer")
+run_performance_tests_options+=(" -r $concurrency -g $no_of_nodes -v $mode -k $jwt_token_client_secret -o $jwt_token_user_password -x $enable_burst -y $token_issuer")
 
 if [[ -z $user_tag ]]; then
     echo "Please provide the user tag."
