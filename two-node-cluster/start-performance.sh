@@ -295,6 +295,7 @@ create_stack_command="aws cloudformation create-stack --stack-name $stack_name \
         ParameterKey=DBInstanceType,ParameterValue=$db_instance_type \
         ParameterKey=WSO2InstanceType,ParameterValue=$wso2_is_instance_type \
         ParameterKey=BastionInstanceType,ParameterValue=$bastion_instance_type \
+        ParameterKey=UserTag,ParameterValue=$user_tag \
     --capabilities CAPABILITY_IAM"
 
 echo ""
@@ -403,7 +404,7 @@ echo ""
 echo "Running Bastion Node setup script..."
 echo "============================================"
 setup_bastion_node_command="ssh -i $key_file -o "StrictHostKeyChecking=no" -t ubuntu@$bastion_node_ip \
-    sudo ./setup/setup-bastion.sh -w $wso2_is_1_ip -i $wso2_is_2_ip -r $rds_host -l $nginx_instance_ip"
+    sudo ./setup/setup-bastion.sh -n $no_of_nodes -w $wso2_is_1_ip -i $wso2_is_2_ip -r $rds_host -l $nginx_instance_ip"
 echo "$setup_bastion_node_command"
 # Handle any error and let the script continue.
 $setup_bastion_node_command || echo "Remote ssh command failed."
