@@ -100,13 +100,13 @@ if [[ -z $no_of_nodes ]]; then
     exit 1
 elif [[ $no_of_nodes -eq 2 ]]; then
     setup_is_node_command="ssh -i ~/private_key.pem -o "StrictHostKeyChecking=no" -t ubuntu@$wso2_is_1_ip \
-      ./update-is-conf.sh -n $no_of_nodes -r $db_instance_ip -w $wso2_is_1_ip -i $wso2_is_2_ip"
+      ./update-is-conf.sh -r $db_instance_ip -w $wso2_is_1_ip -i $wso2_is_2_ip"
 elif [[ $no_of_nodes -eq 3 ]]; then
     setup_is_node_command="ssh -i ~/private_key.pem -o "StrictHostKeyChecking=no" -t ubuntu@$wso2_is_1_ip \
-      ./update-is-conf.sh -n $no_of_nodes -r $db_instance_ip -w $wso2_is_1_ip -i $wso2_is_2_ip -j $wso2_is_3_ip"
+      ./update-is-conf.sh -r $db_instance_ip -w $wso2_is_1_ip -i $wso2_is_2_ip -j $wso2_is_3_ip"
 elif [[ $no_of_nodes -eq 4 ]]; then
     setup_is_node_command="ssh -i ~/private_key.pem -o "StrictHostKeyChecking=no" -t ubuntu@$wso2_is_1_ip \
-      ./update-is-conf.sh -n $no_of_nodes -r $db_instance_ip -w $wso2_is_1_ip -i $wso2_is_2_ip -j $wso2_is_3_ip -k $wso2_is_4_ip"
+      ./update-is-conf.sh -r $db_instance_ip -w $wso2_is_1_ip -i $wso2_is_2_ip -j $wso2_is_3_ip -k $wso2_is_4_ip"
 else
     echo "Invalid value for no_of_nodes. Please provide a valid number."
     exit 1
