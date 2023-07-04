@@ -124,7 +124,6 @@ while getopts "q:k:c:j:n:u:p:d:e:i:b:w:h" opts; do
         echo "Invalid option: -$OPTARG"
         echo "May be needed for the perf-test script."
         usage
-        exit 1
         ;;
     esac
 done
