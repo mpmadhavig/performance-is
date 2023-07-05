@@ -116,7 +116,6 @@ while getopts "q:k:c:j:n:u:p:i:b:w:h" opts; do
     \?)
         echo "Invalid option: -$OPTARG"
         echo "May be needed for the perf-test script."
-        usage
         ;;
     esac
 done
@@ -147,8 +146,6 @@ done
 
 # Pass the modified options to the command
 run_performance_tests_options=("-r ${modified_options[@]}")
-
-echo "run_performance_tests_options: ${run_performance_tests_options[@]}"
 
 if [[ -z $user_tag ]]; then
     echo "Please provide the user tag."

@@ -126,7 +126,6 @@ while getopts "q:k:c:j:n:u:p:d:e:i:b:w:h" opts; do
     \?)
         echo "Invalid option: -$OPTARG"
         echo "May be needed for the perf-test script."
-        usage
         ;;
     esac
 done
@@ -134,7 +133,6 @@ shift "$((OPTIND - 1))"
 
 run_performance_tests_options="$@"
 run_performance_tests_options+=(" -g $no_of_nodes")
-#-r $concurrency -v $mode -k $jwt_token_client_secret -o $jwt_token_user_password -x $enable_burst -y $token_issuer
 
 # Define an associative array to store excluded options
 declare -A excluded_options=(
@@ -158,8 +156,6 @@ done
 
 # Pass the modified options to the command
 run_performance_tests_options=("-r ${modified_options[@]}")
-
-echo "run_performance_tests_options: ${run_performance_tests_options[@]}"
 
 if [[ -z $user_tag ]]; then
     echo "Please provide the user tag."

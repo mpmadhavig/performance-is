@@ -154,8 +154,6 @@ done
 # Pass the modified options to the command
 run_performance_tests_options=("-r ${modified_options[@]}")
 
-echo "run_performance_tests_options: ${run_performance_tests_options[@]}"
-
 if [[ -z $user_tag ]]; then
     echo "Please provide the user tag."
     exit 1
