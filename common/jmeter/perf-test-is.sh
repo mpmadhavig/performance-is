@@ -262,7 +262,7 @@ else
 fi
 
 # Check token type
-if [ "$token_issuer" = "Opaque" ]; then
+if [ "$token_issuer" == "Opaque" ]; then
     token_issuer="Default"
 else
     token_issuer="JWT"
