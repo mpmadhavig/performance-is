@@ -131,9 +131,6 @@ while getopts "q:k:c:j:n:u:p:d:e:i:b:w:h" opts; do
 done
 shift "$((OPTIND - 1))"
 
-run_performance_tests_options="$@"
-run_performance_tests_options+=(" -g $no_of_nodes")
-
 # Define an associative array to store excluded options
 declare -A excluded_options=(
   ["-i ${wso2_is_instance_type}"]=1
@@ -155,7 +152,7 @@ while [[ $# -gt 0 ]]; do
 done
 
 # Pass the modified options to the command
-run_performance_tests_options=("-r ${modified_options[@]}")
+run_performance_tests_options=("-g ${no_of_nodes} -r ${modified_options[@]}")
 
 if [[ -z $user_tag ]]; then
     echo "Please provide the user tag."

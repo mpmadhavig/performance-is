@@ -160,7 +160,7 @@ while getopts "c:m:d:w:r:j:i:e:g:n:s:q:u:t:p:k:v:x:o:y:h" opts; do
         exclude_scenario_names+=("${OPTARG}")
         ;;
     g)
-        noOfNodes=("${OPTARG}")
+        noOfNodes=${OPTARG}
         ;;
     n)
         noOfTenants=("${OPTARG}")
@@ -419,7 +419,7 @@ function run_test_data_scripts() {
 
     for script in "${scripts[@]}"; do
         script_file="$setup_dir/$script"
-        command="jmeter -Jhost=$lb_host -Jport=$is_port -JtokenIssuer=$token_issuer -JjwtTokenUserPassword=$jwt_token_user_password -JjwtTokenClientSecret=$jwt_token_client_secret -n -t $script_file"
+        command="jmeter -Jhost=$lb_host -Jport=$is_port -JtokenIssuer=$token_issuer -JjwtTokenUserPassword=$jwt_token_user_password -JjwtTokenClientSecret=$jwt_token_client_secret -JnoOfNodes=$noOfNodes -n -t $script_file"
         echo "$command"
         echo ""
         $command
