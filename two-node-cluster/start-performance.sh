@@ -145,7 +145,6 @@ modified_options=()
 while [[ $# -gt 0 ]]; do
   option="$1"
   if [[ -z "${excluded_options[$option]}" ]]; then
-    echo "option: $option"
     modified_options+=("$option")
   fi
   shift
