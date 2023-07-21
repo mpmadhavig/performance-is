@@ -134,5 +134,5 @@ echo "-------------------------------------------"
 ./wso2is/bin/wso2server.sh start
 sleep 100s
 
-sleep 10m
-echo "Sleep 10m"
+#sleep 10m
+#echo "Sleep 10m"

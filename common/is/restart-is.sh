@@ -95,7 +95,7 @@ sh $carbon_home/bin/wso2server.sh restart
 echo "Waiting $waiting_time seconds..."
 sleep $waiting_time
 
-echo "Sleep 10m restart"
-sleep 10m
+#echo "Sleep 10m restart"
+#sleep 10m
 
 echo "Finished starting identity server..."
