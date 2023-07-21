@@ -80,6 +80,8 @@ rm -rf $carbon_home/repository/logs/*
 echo "Killing All Carbon Servers..."
 killall java
 
+heap_size="$default_heap_size"
+
 echo "Enabling GC Logs..."
 export JAVA_OPTS="-XX:+PrintGC -XX:+PrintGCDetails -Xloggc:${carbon_home}/repository/logs/gc.log"
 JAVA_OPTS+=" -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath="${carbon_home}/repository/logs/heap-dump.hprof""
