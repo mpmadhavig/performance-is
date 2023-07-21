@@ -552,6 +552,8 @@ trap exit_handler EXIT
 
 function test_scenarios() {
 
+    sleep 10m
+    echo "sleep 10m"
     initiailize_test
     for heap in "${heap_sizes_array[@]}"; do
         declare -ng scenario
@@ -575,8 +577,7 @@ function test_scenarios() {
                 echo "$scenario_desc"
                 echo "=========================================================================================="
 
-                sleep 10m
-                echo "sleep 10m"
+
                 report_location=$PWD/results/${scenario_name}/${heap}_heap/${users}_users
 
                 echo ""
