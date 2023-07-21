@@ -133,3 +133,6 @@ echo "Starting WSO2 IS server..."
 echo "-------------------------------------------"
 ./wso2is/bin/wso2server.sh start
 sleep 100s
+
+sleep 10m
+echo "Sleep 10m"
