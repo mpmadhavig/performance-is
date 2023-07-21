@@ -98,15 +98,15 @@
 #    [skip]=false
 #    [modes]="FULL"
 #)
-#declare -A test_scenario9=(
-#    [name]="09-saml2_sso_redirect_binding"
-#    [display_name]="SAML2 SSO Redirect Binding"
-#    [description]="Obtain a SAML 2 assertion response using redirect binding."
-#    [jmx]="saml/SAML2_SSO_Redirect_Binding.jmx"
-#    [tenantMode]=false
-#    [skip]=false
-#    [modes]="FULL QUICK PUBLISH"
-#)
+declare -A test_scenario9=(
+    [name]="09-saml2_sso_redirect_binding"
+    [display_name]="SAML2 SSO Redirect Binding"
+    [description]="Obtain a SAML 2 assertion response using redirect binding."
+    [jmx]="saml/SAML2_SSO_Redirect_Binding.jmx"
+    [tenantMode]=false
+    [skip]=false
+    [modes]="FULL QUICK PUBLISH"
+)
 #declare -A test_scenario10=(
 #    [name]="10-oauth_auth_code_redirect_with_consent_tenant"
 #    [display_name]="Auth Code Grant Redirect With Consent"
@@ -206,15 +206,15 @@
 #  [skip]=true
 #  [modes]="FULL DEVICE_FLOW"
 #)
-declare -A test_scenario21=(
-    [name]="21-oauth_jwt_grant_tenant"
-    [display_name]="Jwt Grant Type"
-    [description]="Obtain an access token using the OAuth 2.0 jwt grant type."
-    [jmx]="oauth/OAuth_Jwt_Grant.jmx"
-    [tenantMode]=false
-    [skip]=false
-    [modes]="FULL JWT_GRANT_FLOW PUBLISH"
-)
+#declare -A test_scenario21=(
+#    [name]="21-oauth_jwt_grant_tenant"
+#    [display_name]="Jwt Grant Type"
+#    [description]="Obtain an access token using the OAuth 2.0 jwt grant type."
+#    [jmx]="oauth/OAuth_Jwt_Grant.jmx"
+#    [tenantMode]=false
+#    [skip]=false
+#    [modes]="FULL JWT_GRANT_FLOW PUBLISH"
+#)
 #declare -A test_scenario22=(
 #    [name]="22-oauth_jwt_grant_tenant"
 #    [display_name]="Jwt Grant Type"
