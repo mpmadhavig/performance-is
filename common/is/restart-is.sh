@@ -85,7 +85,7 @@ heap_size="$default_heap_size"
 echo "Enabling GC Logs..."
 export JAVA_OPTS="-XX:+PrintGC -XX:+PrintGCDetails -Xloggc:${carbon_home}/repository/logs/gc.log"
 JAVA_OPTS+=" -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath="${carbon_home}/repository/logs/heap-dump.hprof""
-export JVM_MEM_OPTS="-Xms${heap_size} -Xmx${heap_size}"
+export JVM_MEM_OPTS="-Xms1G -Xmx1G"
 echo "JAVA_OPTS: $JAVA_OPTS"
 echo "JVM_MEM_OPTS: $JVM_MEM_OPTS"
 

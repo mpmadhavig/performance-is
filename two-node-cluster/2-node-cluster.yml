@@ -538,6 +538,7 @@ Parameters:
     Type: String
     Default: db.m4.2xlarge
     AllowedValues:
+      - db.t2.micro
       - db.t2.medium
       - db.t2.large
       - db.t2.xlarge
