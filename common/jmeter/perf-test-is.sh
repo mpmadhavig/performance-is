@@ -569,11 +569,14 @@ function test_scenarios() {
                 fi
                 local start_time=$(date +%s)
 
+
                 local scenario_desc="Scenario Name: $scenario_name, Duration: $test_duration m, Concurrent Users: $users"
                 echo "# Starting the performance test"
                 echo "$scenario_desc"
                 echo "=========================================================================================="
 
+                sleep 10m
+                echo "sleep 10m"
                 report_location=$PWD/results/${scenario_name}/${heap}_heap/${users}_users
 
                 echo ""
