@@ -552,8 +552,8 @@ trap exit_handler EXIT
 
 function test_scenarios() {
 
-    sleep 10m
     echo "sleep 20m"
+    sleep 20m
     initiailize_test
     for heap in "${heap_sizes_array[@]}"; do
         declare -ng scenario
