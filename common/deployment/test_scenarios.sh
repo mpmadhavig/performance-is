@@ -53,24 +53,24 @@
 #    [skip]=false
 #    [modes]="FULL"
 #)
-declare -A test_scenario4=(
-    [name]="04-oauth_client_credential_grant"
-    [display_name]="Client Credentials Grant Type"
-    [description]="Obtain an access token using the OAuth 2.0 client credential grant type."
-    [jmx]="oauth/OAuth_Client_Credentials_Grant.jmx"
-    [tenantMode]=false
-    [skip]=false
-    [modes]="FULL PUBLISH"
-)
-declare -A test_scenario5=(
-    [name]="05-oidc_auth_code_redirect_with_consent"
-    [display_name]="OIDC Auth Code Grant Redirect With Consent"
-    [description]="Obtain an access token and an id token using the OAuth 2.0 authorization code grant type."
-    [jmx]="oidc/OIDC_AuthCode_Redirect_WithConsent.jmx"
-    [tenantMode]=false
-    [skip]=false
-    [modes]="FULL QUICK PUBLISH"
-)
+#declare -A test_scenario4=(
+#    [name]="04-oauth_client_credential_grant"
+#    [display_name]="Client Credentials Grant Type"
+#    [description]="Obtain an access token using the OAuth 2.0 client credential grant type."
+#    [jmx]="oauth/OAuth_Client_Credentials_Grant.jmx"
+#    [tenantMode]=false
+#    [skip]=false
+#    [modes]="FULL PUBLISH"
+#)
+#declare -A test_scenario5=(
+#    [name]="05-oidc_auth_code_redirect_with_consent"
+#    [display_name]="OIDC Auth Code Grant Redirect With Consent"
+#    [description]="Obtain an access token and an id token using the OAuth 2.0 authorization code grant type."
+#    [jmx]="oidc/OIDC_AuthCode_Redirect_WithConsent.jmx"
+#    [tenantMode]=false
+#    [skip]=false
+#    [modes]="FULL QUICK PUBLISH"
+#)
 #declare -A test_scenario6=(
 #    [name]="06-oidc_implicit_redirect_with_consent"
 #    [display_name]="OIDC Implicit Grant Redirect With Consent"
@@ -98,15 +98,15 @@ declare -A test_scenario7=(
 #    [skip]=false
 #    [modes]="FULL"
 #)
-declare -A test_scenario9=(
-    [name]="09-saml2_sso_redirect_binding"
-    [display_name]="SAML2 SSO Redirect Binding"
-    [description]="Obtain a SAML 2 assertion response using redirect binding."
-    [jmx]="saml/SAML2_SSO_Redirect_Binding.jmx"
-    [tenantMode]=false
-    [skip]=false
-    [modes]="FULL QUICK PUBLISH"
-)
+#declare -A test_scenario9=(
+#    [name]="09-saml2_sso_redirect_binding"
+#    [display_name]="SAML2 SSO Redirect Binding"
+#    [description]="Obtain a SAML 2 assertion response using redirect binding."
+#    [jmx]="saml/SAML2_SSO_Redirect_Binding.jmx"
+#    [tenantMode]=false
+#    [skip]=false
+#    [modes]="FULL QUICK PUBLISH"
+#)
 #declare -A test_scenario10=(
 #    [name]="10-oauth_auth_code_redirect_with_consent_tenant"
 #    [display_name]="Auth Code Grant Redirect With Consent"
