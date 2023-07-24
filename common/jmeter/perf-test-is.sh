@@ -57,7 +57,7 @@
 default_concurrent_users=""
 concurrency=""
 # Application heap Sizes
-default_heap_sizes="512M"
+default_heap_sizes="512m"
 
 # Test Duration in minutes
 default_test_duration=15
