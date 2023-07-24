@@ -72,6 +72,7 @@ fi
 echo ""
 echo "unzipping is server"
 echo "-------------------------------------------"
+pip install unzip
 unzip -q wso2is.zip
 
 echo ""
