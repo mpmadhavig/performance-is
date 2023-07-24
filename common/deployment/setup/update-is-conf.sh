@@ -72,7 +72,7 @@ fi
 echo ""
 echo "unzipping is server"
 echo "-------------------------------------------"
-pip install unzip
+apt-get -y -q -o Dpkg::Options::='--force-confdef' -o Dpkg::Options::='--force-confold' install unzip
 unzip -q wso2is.zip
 
 echo ""
