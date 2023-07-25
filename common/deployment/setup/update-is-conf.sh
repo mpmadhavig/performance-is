@@ -19,6 +19,13 @@
 # edit is server script.
 # ----------------------------------------------------------------------------
 
+function check_command() {
+    if ! command -v "$1" >/dev/null 2>&1; then
+        echo "Please install $1"
+        sudo apt-get -y -q -o Dpkg::Options::='--force-confdef' -o Dpkg::Options::='--force-confold' install unzip
+    fi
+}
+
 function usage() {
     echo ""
     echo "Usage: "
@@ -72,7 +79,7 @@ fi
 echo ""
 echo "unzipping is server"
 echo "-------------------------------------------"
-sudo apt-get -y -q -o Dpkg::Options::='--force-confdef' -o Dpkg::Options::='--force-confold' install unzip
+check_command unzip
 unzip -q wso2is.zip
 
 echo ""
