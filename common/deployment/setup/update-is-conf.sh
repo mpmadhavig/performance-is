@@ -129,6 +129,9 @@ if [[ $no_of_nodes -gt 3 ]]; then
     sed -i "s|member_ip_4|$wso2_is_4_ip|g" "$carbon_home"/repository/conf/deployment.toml || echo "Editing deployment.toml file failed!"
 fi
 
+echo "Sleep 20m before restart"
+sleep 20m
+
 echo ""
 echo "Starting WSO2 IS server..."
 echo "-------------------------------------------"
