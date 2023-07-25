@@ -21,7 +21,7 @@ default_carbon_home=$(realpath ~/wso2is)
 carbon_home=$default_carbon_home
 default_waiting_time=100
 waiting_time=$default_waiting_time
-default_heap_size="1g"
+default_heap_size="512m"
 heap_size="$default_heap_size"
 
 function usage() {
@@ -85,7 +85,7 @@ heap_size="$default_heap_size"
 echo "Enabling GC Logs..."
 export JAVA_OPTS="-XX:+PrintGC -XX:+PrintGCDetails -Xloggc:${carbon_home}/repository/logs/gc.log"
 JAVA_OPTS+=" -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath="${carbon_home}/repository/logs/heap-dump.hprof""
-export JVM_MEM_OPTS="-Xms512M -Xmx1G"
+export JVM_MEM_OPTS="-Xms256M -Xmx512M"
 echo "JAVA_OPTS: $JAVA_OPTS"
 echo "JVM_MEM_OPTS: $JVM_MEM_OPTS"
 
@@ -100,7 +100,7 @@ sleep $waiting_time
 
 sleep 5m
 
-#echo "Sleep 20m restart"
-#sleep 20m
+echo "Sleep 20m restart"
+sleep 20m
 
 echo "Finished starting identity server..."
