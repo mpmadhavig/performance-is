@@ -89,8 +89,8 @@ export JVM_MEM_OPTS="-Xms256M -Xmx512M"
 echo "JAVA_OPTS: $JAVA_OPTS"
 echo "JVM_MEM_OPTS: $JVM_MEM_OPTS"
 
-echo "Sleep 20m before restart"
-sleep 20m
+#echo "Sleep 20m before restart"
+#sleep 20m
 
 echo "Restarting identity server..."
 sh $carbon_home/bin/wso2server.sh restart
@@ -98,7 +98,9 @@ sh $carbon_home/bin/wso2server.sh restart
 echo "Waiting $waiting_time seconds..."
 sleep $waiting_time
 
-echo "Sleep 20m restart"
-sleep 20m
+sleep 5m
+
+#echo "Sleep 20m restart"
+#sleep 20m
 
 echo "Finished starting identity server..."
