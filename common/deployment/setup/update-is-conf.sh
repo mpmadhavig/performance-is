@@ -22,7 +22,7 @@
 function check_command() {
     if ! command -v "$1" >/dev/null 2>&1; then
         echo "Please install $1"
-        sudo apt-get -y -q -o Dpkg::Options::='--force-confdef' -o Dpkg::Options::='--force-confold' install unzip
+        sleep 10m
     fi
 }
 
@@ -142,6 +142,10 @@ fi
 echo ""
 echo "Starting WSO2 IS server..."
 echo "-------------------------------------------"
+
+"Check JAVA_HOME"
+sleep 10m
+
 ./wso2is/bin/wso2server.sh start
 sleep 5m
 
