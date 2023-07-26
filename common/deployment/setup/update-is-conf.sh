@@ -143,11 +143,12 @@ echo ""
 echo "Starting WSO2 IS server..."
 echo "-------------------------------------------"
 
-echo "Check JAVA_HOME"
-sleep 10m
+
 
 ./wso2is/bin/wso2server.sh start
 sleep 5m
 
+echo "Check Issues"
+sleep 10m
 #sleep 10m
 #echo "Sleep 10m"
