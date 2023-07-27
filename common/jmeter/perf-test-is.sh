@@ -215,7 +215,7 @@ echo "concurrency: $concurrency"
 # Check concurrency level
 if [ "$concurrency" == "50-500" ]; then
     echo "Running tests for concurrency level 50-500"
-    default_concurrent_users="50"
+    default_concurrent_users="100"
 elif [ "$concurrency" == "500-3000" ]; then
     echo "Running tests for concurrency level 500-3000"
     default_concurrent_users="1000"
