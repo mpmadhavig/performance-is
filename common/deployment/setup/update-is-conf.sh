@@ -23,7 +23,10 @@ function check_command() {
     if ! command -v "$1" >/dev/null 2>&1; then
         echo "Please install $1"
         sleep 10m
+    else
+        unzip -q wso2is.zip
     fi
+
 }
 
 function usage() {
@@ -80,7 +83,7 @@ echo ""
 echo "unzipping is server"
 echo "-------------------------------------------"
 check_command unzip
-unzip -q wso2is.zip
+
 
 echo ""
 echo "changing server name"
