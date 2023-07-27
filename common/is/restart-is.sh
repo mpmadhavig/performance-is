@@ -100,4 +100,7 @@ sleep $waiting_time
 
 sleep 5m
 
+echo "Sleep 20m restart"
+sleep 20m
+
 echo "Finished starting identity server..."
