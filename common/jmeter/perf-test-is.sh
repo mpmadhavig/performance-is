@@ -213,7 +213,7 @@ heap_regex='^[0-9]+[MG]$'
 # Check concurrency level
 if [ "$concurrency" == "50-500" ]; then
     echo "Running tests for concurrency level 50-500"
-    default_concurrent_users="50 100 150 300 500"
+    default_concurrent_users="50"
 elif [ "$concurrency" == "500-3000" ]; then
     echo "Running tests for concurrency level 500-3000"
     default_concurrent_users="500 1000 1500 2000 2500 3000"
@@ -411,7 +411,7 @@ function run_test_data_scripts() {
 
     echo "Running test data setup scripts"
     echo "=========================================================================================="
-    declare -a scripts=("TestData_SCIM2_Add_User.jmx" "TestData_Add_OAuth_Apps.jmx" "TestData_Add_SAML_Apps.jmx" "TestData_Add_images.jmx" "TestData_Add_Device_Flow_OAuth_Apps.jmx" "TestData_Add_OAuth_Idps.jmx" "TestData_Get_OAuth_Jwt_Token.jmx")
+    declare -a scripts=("TestData_SCIM2_Add_User.jmx" "TestData_Add_OAuth_Apps_Requesting_Claims.jmx")
 #    declare -a scripts=("TestData_Add_Super_Tenant_Users.jmx" "TestData_Add_OAuth_Apps.jmx" "TestData_Add_SAML_Apps.jmx" "TestData_Add_Tenants.jmx" "TestData_Add_Tenant_Users.jmx")
     setup_dir="/home/ubuntu/workspace/jmeter/setup"
 
