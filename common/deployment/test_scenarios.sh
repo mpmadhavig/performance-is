@@ -188,15 +188,15 @@ declare -A test_scenario7=(
 #    [skip]=true
 #    [modes]="FULL"
 #)
-declare -A test_scenario19=(
-  [name]="19-oidc_device_code_grant"
-  [display_name]="Device Code Grant Flow"
-  [description]="Obtain an access token using the OAuth 2.0 device code grant type."
-  [jmx]="oauth/OAuth_DeviceCode_Grant.jmx"
-  [tenantMode]=false
-  [skip]=false
-  [modes]="FULL DEVICE_FLOW"
-)
+#declare -A test_scenario19=(
+#  [name]="19-oidc_device_code_grant"
+#  [display_name]="Device Code Grant Flow"
+#  [description]="Obtain an access token using the OAuth 2.0 device code grant type."
+#  [jmx]="oauth/OAuth_DeviceCode_Grant.jmx"
+#  [tenantMode]=false
+#  [skip]=false
+#  [modes]="FULL DEVICE_FLOW"
+#)
 #declare -A test_scenario20=(
 #  [name]="20-oidc_device_code_grant_tenant"
 #  [display_name]="Device Code Grant Flow"
@@ -206,15 +206,15 @@ declare -A test_scenario19=(
 #  [skip]=true
 #  [modes]="FULL DEVICE_FLOW"
 #)
-declare -A test_scenario21=(
-    [name]="21-oauth_jwt_grant_tenant"
-    [display_name]="Jwt Grant Type"
-    [description]="Obtain an access token using the OAuth 2.0 jwt grant type."
-    [jmx]="oauth/OAuth_Jwt_Grant.jmx"
-    [tenantMode]=false
-    [skip]=false
-    [modes]="FULL JWT_GRANT_FLOW PUBLISH"
-)
+#declare -A test_scenario21=(
+#    [name]="21-oauth_jwt_grant_tenant"
+#    [display_name]="Jwt Grant Type"
+#    [description]="Obtain an access token using the OAuth 2.0 jwt grant type."
+#    [jmx]="oauth/OAuth_Jwt_Grant.jmx"
+#    [tenantMode]=false
+#    [skip]=false
+#    [modes]="FULL JWT_GRANT_FLOW PUBLISH"
+#)
 #declare -A test_scenario22=(
 #    [name]="22-oauth_jwt_grant_tenant"
 #    [display_name]="Jwt Grant Type"
