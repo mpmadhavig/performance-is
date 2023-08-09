@@ -115,7 +115,7 @@
         <stringProp name="ThreadGroup.duration"></stringProp>
         <stringProp name="ThreadGroup.delay"></stringProp>
         <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
-        <stringProp name="TestPlan.comments">Assign role to profile scope</stringProp>
+        <stringProp name="TestPlan.comments">Assign role to custom scope</stringProp>
       </ThreadGroup>
       <hashTree>
         <CookieManager guiclass="CookiePanel" testclass="CookieManager" testname="HTTP Cookie Manager" enabled="true">
@@ -180,27 +180,10 @@ if (y == 0) {
               <elementProp name="" elementType="HTTPArgument">
                 <boolProp name="HTTPArgument.always_encode">false</boolProp>
                 <stringProp name="Argument.value">{&#xd;
-	&quot;claims&quot;:&#xd;
-	[&#xd;
-		&quot;birthdate&quot;,&#xd;
-		&quot;preferred_username&quot;,&#xd;
-		&quot;given_name&quot;,&#xd;
-		&quot;name&quot;,&#xd;
-		&quot;gender&quot;,&#xd;
-		&quot;updated_at&quot;,&#xd;
-		&quot;family_name&quot;,&#xd;
-		&quot;locale&quot;,&#xd;
-		&quot;middle_name&quot;,&#xd;
-		&quot;nickname&quot;,&#xd;
-		&quot;picture&quot;,&#xd;
-		&quot;zoneinfo&quot;,&#xd;
-		&quot;profile&quot;,&#xd;
-		&quot;username&quot;,&#xd;
-		&quot;website&quot;,&#xd;
-		&quot;roles&quot;&#xd;
-	],&#xd;
-	&quot;description&quot;:&quot;Retrieve profile information of the user.&quot;,&#xd;
-	&quot;displayName&quot;:&quot;Profile&quot;&#xd;
+	&quot;claims&quot;:[&quot;roles&quot;],&#xd;
+	&quot;description&quot;:&quot;This is the description of the scope&quot;,&#xd;
+	&quot;displayName&quot;:&quot;Roles&quot;,&#xd;
+	&quot;name&quot;:&quot;roles&quot;&#xd;
 }</stringProp>
                 <stringProp name="Argument.metadata">=</stringProp>
               </elementProp>
@@ -210,8 +193,8 @@ if (y == 0) {
           <stringProp name="HTTPSampler.port">${is_port}</stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
-          <stringProp name="HTTPSampler.path">/api/server/v1/oidc/scopes/profile</stringProp>
-          <stringProp name="HTTPSampler.method">PUT</stringProp>
+          <stringProp name="HTTPSampler.path">/api/server/v1/oidc/scopes</stringProp>
+          <stringProp name="HTTPSampler.method">POST</stringProp>
           <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
           <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
           <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
@@ -223,7 +206,7 @@ if (y == 0) {
         <hashTree>
           <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="200 HTTP Code Response Assertion" enabled="true">
             <collectionProp name="Asserion.test_strings">
-              <stringProp name="103171775">HTTP/1.1 200</stringProp>
+              <stringProp name="103171776">HTTP/1.1 201</stringProp>
             </collectionProp>
             <stringProp name="Assertion.test_field">Assertion.response_headers</stringProp>
             <boolProp name="Assertion.assume_success">false</boolProp>
