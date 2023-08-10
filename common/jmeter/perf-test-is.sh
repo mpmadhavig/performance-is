@@ -534,9 +534,6 @@ function initiailize_test() {
 
         run_test_data_scripts
         #run_tenant_test_data_scripts
-
-        echo "5m sleep for RDS connection increase"
-        sleep 5m
     fi
 }
 
