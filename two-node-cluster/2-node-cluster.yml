@@ -536,7 +536,7 @@ Parameters:
     NoEcho: true
   DBInstanceType:
     Type: String
-    Default: db.m4.4xlarge
+    Default: db.m4.xlarge
     AllowedValues:
       - db.t2.medium
       - db.t2.large
