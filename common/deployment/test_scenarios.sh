@@ -80,15 +80,15 @@ declare -A test_scenario5=(
 #    [skip]=false
 #    [modes]="FULL"
 #)
-#declare -A test_scenario7=(
-#    [name]="07-oidc_password_grant"
-#    [display_name]="OIDC Password Grant Type"
-#    [description]="Obtain an access token and an id token using the OAuth 2.0 password grant type."
-#    [jmx]="oidc/OIDC_Password_Grant.jmx"
-#    [tenantMode]=false
-#    [skip]=false
-#    [modes]="FULL QUICK PUBLISH"
-#)
+declare -A test_scenario7=(
+    [name]="07-oidc_password_grant"
+    [display_name]="OIDC Password Grant Type"
+    [description]="Obtain an access token and an id token using the OAuth 2.0 password grant type."
+    [jmx]="oidc/OIDC_Password_Grant.jmx"
+    [tenantMode]=false
+    [skip]=false
+    [modes]="FULL QUICK PUBLISH"
+)
 #declare -A test_scenario8=(
 #    [name]="08-oidc_request_path_authenticator"
 #    [display_name]="OIDC Auth Code Request Path Authenticator With Consent"
