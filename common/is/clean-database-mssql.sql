@@ -9,6 +9,8 @@ truncate_non_empty_table IDN_OAUTH2_ACCESS_TOKEN_SCOPE;
 GO
 truncate_non_empty_table IDN_OAUTH2_ACCESS_TOKEN;
 GO
+truncate_non_empty_table IDN_OAUTH2_ACCESS_TOKEN_AUDIT;
+GO
 truncate_non_empty_table IDN_AUTH_SESSION_META_DATA;
 GO
 truncate_non_empty_table IDN_AUTH_SESSION_APP_INFO;
