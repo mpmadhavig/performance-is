@@ -242,15 +242,15 @@
 #    [skip]=false
 #    [modes]="FULL QUICK PUBLISH"
 #)
-declare -A test_scenario25=(
-    [name]="07-oidc_password_grant_user_attributes"
-    [display_name]="OIDC Password Grant Type User Attributes"
-    [description]="Obtain an access token and an id token using the OAuth 2.0 password grant type."
-    [jmx]="oidc/OIDC_Password_Grant_User_Attributes.jmx"
-    [tenantMode]=false
-    [skip]=false
-    [modes]="FULL QUICK PUBLISH"
-)
+#declare -A test_scenario25=(
+#    [name]="07-oidc_password_grant_user_attributes"
+#    [display_name]="OIDC Password Grant Type User Attributes"
+#    [description]="Obtain an access token and an id token using the OAuth 2.0 password grant type."
+#    [jmx]="oidc/OIDC_Password_Grant_User_Attributes.jmx"
+#    [tenantMode]=false
+#    [skip]=false
+#    [modes]="FULL QUICK PUBLISH"
+#)
 #declare -A test_scenario26=(
 #    [name]="05-oidc_auth_code_redirect_with_consent_group"
 #    [display_name]="OIDC Auth Code Grant Redirect With Consent Group"
@@ -269,12 +269,12 @@ declare -A test_scenario25=(
 #    [skip]=false
 #    [modes]="FULL QUICK PUBLISH"
 #)
-#declare -A test_scenario28=(
-#    [name]="05-oidc_auth_code_redirect_with_consent_user_attributes"
-#    [display_name]="OIDC Auth Code Grant Redirect With Consent User Attributes"
-#    [description]="Obtain an access token and an id token using the OAuth 2.0 authorization code grant type."
-#    [jmx]="oidc/OIDC_AuthCode_Redirect_WithConsent_User_Attributes.jmx"
-#    [tenantMode]=false
-#    [skip]=false
-#    [modes]="FULL QUICK PUBLISH"
-#)
+declare -A test_scenario28=(
+    [name]="05-oidc_auth_code_redirect_with_consent_user_attributes"
+    [display_name]="OIDC Auth Code Grant Redirect With Consent User Attributes"
+    [description]="Obtain an access token and an id token using the OAuth 2.0 authorization code grant type."
+    [jmx]="oidc/OIDC_AuthCode_Redirect_WithConsent_User_Attributes.jmx"
+    [tenantMode]=false
+    [skip]=false
+    [modes]="FULL QUICK PUBLISH"
+)
