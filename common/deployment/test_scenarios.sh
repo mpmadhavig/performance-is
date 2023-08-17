@@ -233,24 +233,24 @@
 #    [skip]=false
 #    [modes]="FULL QUICK PUBLISH"
 #)
-declare -A test_scenario24=(
-    [name]="07-oidc_password_grant_roles"
-    [display_name]="OIDC Password Grant Type Roles"
-    [description]="Obtain an access token and an id token using the OAuth 2.0 password grant type."
-    [jmx]="oidc/OIDC_Password_Grant_Roles.jmx"
-    [tenantMode]=false
-    [skip]=false
-    [modes]="FULL QUICK PUBLISH"
-)
-#declare -A test_scenario25=(
-#    [name]="07-oidc_password_grant_user_attributes"
-#    [display_name]="OIDC Password Grant Type User Attributes"
+#declare -A test_scenario24=(
+#    [name]="07-oidc_password_grant_roles"
+#    [display_name]="OIDC Password Grant Type Roles"
 #    [description]="Obtain an access token and an id token using the OAuth 2.0 password grant type."
-#    [jmx]="oidc/OIDC_Password_Grant_User_Attributes.jmx"
+#    [jmx]="oidc/OIDC_Password_Grant_Roles.jmx"
 #    [tenantMode]=false
 #    [skip]=false
 #    [modes]="FULL QUICK PUBLISH"
 #)
+declare -A test_scenario25=(
+    [name]="07-oidc_password_grant_user_attributes"
+    [display_name]="OIDC Password Grant Type User Attributes"
+    [description]="Obtain an access token and an id token using the OAuth 2.0 password grant type."
+    [jmx]="oidc/OIDC_Password_Grant_User_Attributes.jmx"
+    [tenantMode]=false
+    [skip]=false
+    [modes]="FULL QUICK PUBLISH"
+)
 #declare -A test_scenario26=(
 #    [name]="05-oidc_auth_code_redirect_with_consent_group"
 #    [display_name]="OIDC Auth Code Grant Redirect With Consent Group"
