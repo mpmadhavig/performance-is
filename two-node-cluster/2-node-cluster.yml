@@ -522,6 +522,7 @@ Parameters:
       - c4.xlarge
       - c5.large
       - c5.xlarge
+      - c5.2xlarge
     ConstraintDescription: Must be a valid EC2 instance type
   DBUsername:
     Type: String
@@ -549,6 +550,7 @@ Parameters:
       - db.m4.large
       - db.m4.xlarge
       - db.m4.2xlarge
+      - db.m4.4xlarge
       - db.m5.xlarge
       - db.m5.2xlarge
   DBAllocationStorage:
@@ -594,6 +596,7 @@ Parameters:
       - c4.xlarge
       - c5.large
       - c5.xlarge
+      - c5.2xlarge
     ConstraintDescription: Must be a valid EC2 instance type
 Mappings:
   WSO2ISAMIRegionMapsuffix:
