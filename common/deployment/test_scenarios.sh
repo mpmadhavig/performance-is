@@ -251,15 +251,15 @@
 #    [skip]=false
 #    [modes]="FULL QUICK PUBLISH"
 #)
-#declare -A test_scenario26=(
-#    [name]="05-oidc_auth_code_redirect_with_consent_group"
-#    [display_name]="OIDC Auth Code Grant Redirect With Consent Group"
-#    [description]="Obtain an access token and an id token using the OAuth 2.0 authorization code grant type."
-#    [jmx]="oidc/OIDC_AuthCode_Redirect_WithConsent_Group.jmx"
-#    [tenantMode]=false
-#    [skip]=false
-#    [modes]="FULL QUICK PUBLISH"
-#)
+declare -A test_scenario26=(
+    [name]="05-oidc_auth_code_redirect_with_consent_group"
+    [display_name]="OIDC Auth Code Grant Redirect With Consent Group"
+    [description]="Obtain an access token and an id token using the OAuth 2.0 authorization code grant type."
+    [jmx]="oidc/OIDC_AuthCode_Redirect_WithConsent_Group.jmx"
+    [tenantMode]=false
+    [skip]=false
+    [modes]="FULL QUICK PUBLISH"
+)
 #declare -A test_scenario27=(
 #    [name]="05-oidc_auth_code_redirect_with_consent_roles"
 #    [display_name]="OIDC Auth Code Grant Redirect With Consent Roles"
@@ -269,12 +269,12 @@
 #    [skip]=false
 #    [modes]="FULL QUICK PUBLISH"
 #)
-declare -A test_scenario28=(
-    [name]="05-oidc_auth_code_redirect_with_consent_user_attributes"
-    [display_name]="OIDC Auth Code Grant Redirect With Consent User Attributes"
-    [description]="Obtain an access token and an id token using the OAuth 2.0 authorization code grant type."
-    [jmx]="oidc/OIDC_AuthCode_Redirect_WithConsent_User_Attributes.jmx"
-    [tenantMode]=false
-    [skip]=false
-    [modes]="FULL QUICK PUBLISH"
-)
+#declare -A test_scenario28=(
+#    [name]="05-oidc_auth_code_redirect_with_consent_user_attributes"
+#    [display_name]="OIDC Auth Code Grant Redirect With Consent User Attributes"
+#    [description]="Obtain an access token and an id token using the OAuth 2.0 authorization code grant type."
+#    [jmx]="oidc/OIDC_AuthCode_Redirect_WithConsent_User_Attributes.jmx"
+#    [tenantMode]=false
+#    [skip]=false
+#    [modes]="FULL QUICK PUBLISH"
+#)
