@@ -28,6 +28,14 @@ function usage() {
     echo ""
 }
 
+function check_command() {
+    if ! command -v "$1" >/dev/null 2>&1; then
+        echo "Please install $1"
+        apt-get -y -q -o Dpkg::Options::='--force-confdef' -o Dpkg::Options::='--force-confold' install $1
+        exit 1
+    fi
+}
+
 while getopts "l:h" opts; do
     case $opts in
     l)
@@ -48,6 +56,8 @@ if [[ -z $db_instance_ip ]]; then
     echo "Please provide the db instance ip address."
     exit 1
 fi
+
+check_command unzip
 
 echo ""
 echo "unzipping is server"
