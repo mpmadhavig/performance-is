@@ -68,6 +68,9 @@ if [[ -z $wso2_is_2_ip ]]; then
     exit 1
 fi
 
+echo "sleep 5m"
+sleep 5m
+
 echo ""
 echo "unzipping is server"
 echo "-------------------------------------------"
