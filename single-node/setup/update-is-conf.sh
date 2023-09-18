@@ -31,7 +31,7 @@ function usage() {
 function check_command() {
     if ! command -v "$1" >/dev/null 2>&1; then
         echo "Please install $1"
-        apt-get -y -q -o Dpkg::Options::='--force-confdef' -o Dpkg::Options::='--force-confold' install $1
+        sudo apt-get -y -q -o Dpkg::Options::='--force-confdef' -o Dpkg::Options::='--force-confold' install $1
         exit 1
     fi
 }
