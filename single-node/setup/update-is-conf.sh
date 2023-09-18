@@ -59,6 +59,9 @@ fi
 
 check_command unzip
 
+echo "sleep 5m"
+sleep 5m
+
 echo ""
 echo "unzipping is server"
 echo "============================================"
