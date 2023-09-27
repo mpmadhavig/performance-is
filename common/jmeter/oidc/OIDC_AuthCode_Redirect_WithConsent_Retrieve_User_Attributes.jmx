@@ -547,13 +547,6 @@ ${password}</stringProp>
                   <boolProp name="HTTPArgument.use_equals">true</boolProp>
                   <stringProp name="Argument.name">consent_3</stringProp>
                 </elementProp>
-                <elementProp name="consent_4" elementType="HTTPArgument">
-                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
-                  <stringProp name="Argument.value">on</stringProp>
-                  <stringProp name="Argument.metadata">=</stringProp>
-                  <boolProp name="HTTPArgument.use_equals">true</boolProp>
-                  <stringProp name="Argument.name">consent_4</stringProp>
-                </elementProp>
               </collectionProp>
             </elementProp>
             <stringProp name="HTTPSampler.domain">${is_host}</stringProp>
