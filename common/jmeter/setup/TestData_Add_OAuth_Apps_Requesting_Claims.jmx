@@ -40,22 +40,22 @@
         <collectionProp name="Arguments.arguments">
           <elementProp name="spNamePrefix" elementType="Argument">
             <stringProp name="Argument.name">spNamePrefix</stringProp>
-            <stringProp name="Argument.value">app_</stringProp>
+            <stringProp name="Argument.value">wc_app_</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="roleNamePrefix" elementType="Argument">
             <stringProp name="Argument.name">roleNamePrefix</stringProp>
-            <stringProp name="Argument.value">appRole__</stringProp>
+            <stringProp name="Argument.value">wc_appRole__</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="consumerKeyPrefix" elementType="Argument">
             <stringProp name="Argument.name">consumerKeyPrefix</stringProp>
-            <stringProp name="Argument.value">consumerKey_</stringProp>
+            <stringProp name="Argument.value">wc_consumerKey_</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="consumerSecretPrefix" elementType="Argument">
             <stringProp name="Argument.name">consumerSecretPrefix</stringProp>
-            <stringProp name="Argument.value">consumerSecret_</stringProp>
+            <stringProp name="Argument.value">wc_consumerSecret_</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="callbackUrlPrefix" elementType="Argument">
