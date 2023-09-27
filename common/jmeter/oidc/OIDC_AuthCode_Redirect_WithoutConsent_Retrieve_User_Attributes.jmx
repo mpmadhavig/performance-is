@@ -407,7 +407,7 @@ if (y == 0) {
           <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="Regular Expression Extractor" enabled="true">
             <stringProp name="RegexExtractor.useHeaders">true</stringProp>
             <stringProp name="RegexExtractor.refname">sessionDataKey</stringProp>
-            <stringProp name="RegexExtractor.regex">sessionDataKey=(.+.?)</stringProp>
+            <stringProp name="RegexExtractor.regex">sessionDataKey=([a-z0-9-]+)\&amp;?</stringProp>
             <stringProp name="RegexExtractor.template">$1$</stringProp>
             <stringProp name="RegexExtractor.default">FALSE</stringProp>
             <stringProp name="RegexExtractor.match_number">1</stringProp>
