@@ -36,7 +36,7 @@ function usage() {
     echo ""
 }
 
-while getopts "c:w:m:h" opts; do
+while getopts "c:w:m:t:h" opts; do
     case $opts in
     c)
         carbon_home=${OPTARG}
@@ -46,6 +46,9 @@ while getopts "c:w:m:h" opts; do
         ;;
     m)
         heap_size=${OPTARG}
+        ;;
+    t)
+        test_spec=${OPTARG}
         ;;
     h)
         usage
@@ -73,6 +76,11 @@ if [[ -z $heap_size ]]; then
     exit 1
 fi
 
+if [[ -z $test_spec ]]; then
+    echo "Please provide the test specification"
+    exit 1
+fi
+
 echo ""
 echo "Cleaning up any previous log files..."
 rm -rf $carbon_home/repository/logs/*
@@ -86,6 +94,12 @@ JAVA_OPTS+=" -XX:+HeapDumpOnOutOfMemoryError -XX:HeapDumpPath="${carbon_home}/re
 export JVM_MEM_OPTS="-Xms${heap_size} -Xmx${heap_size}"
 echo "JAVA_OPTS: $JAVA_OPTS"
 echo "JVM_MEM_OPTS: $JVM_MEM_OPTS"
+
+# Changing the server wide configurations for the test specs
+if [ "$test_spec" == "35-oidc_auth_code_redirect_without_consent_retrieve_user_attributes" ]; then
+    echo "Running tests for concurrency level 50-500"
+    sed -i "s|prompt=true|prompt=false|g" "$carbon_home"/repository/conf/deployment.toml || echo "Editing deployment.toml file failed!"
+fi
 
 echo "Restarting identity server..."
 sh $carbon_home/bin/wso2server.sh restart

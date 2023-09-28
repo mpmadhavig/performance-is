@@ -586,7 +586,7 @@ function test_scenarios() {
                       jmeter_params+=" -JtenantMode=true -JnoOfTenants=$noOfTenants -JspCount=$spCount -JidpCount=$idpCount -JuserCount=$userCount"
                 fi
 
-                before_execute_test_scenario
+                before_execute_test_scenario "${scenario_name}"
 
                 export JVM_ARGS="-Xms$jmeter_client_heap_size -Xmx$jmeter_client_heap_size  -Xloggc:$report_location/jmeter_gc.log $JMETER_JVM_ARGS"
 

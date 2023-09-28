@@ -35,7 +35,9 @@ source $script_dir/test_scenarios.sh
 
 function before_execute_test_scenario() {
 
-    ssh $wso2is_host_alias "./restart-is.sh -m $heap"
+    test_scenario=$1
+
+    ssh $wso2is_host_alias "./restart-is.sh -m $heap -t $test_scenario"
 
     echo "Cleaning databases..."
     rds_host=$(get_ssh_hostname $rds_ssh_host_alias)
