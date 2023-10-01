@@ -36,8 +36,10 @@ source $script_dir/test_scenarios.sh
 
 function before_execute_test_scenario() {
 
-    ssh $wso2is_1_host_alias "./restart-is.sh -m $heap"
-    ssh $wso2is_2_host_alias "./restart-is.sh -m $heap"
+    test_scenario=$1
+
+    ssh $wso2is_1_host_alias "./restart-is.sh -m $heap -t $test_scenario"
+    ssh $wso2is_2_host_alias "./restart-is.sh -m $heap -t $test_scenario"
     jmeter_params+=("port=443")
 
     echo "Cleaning databases..."
