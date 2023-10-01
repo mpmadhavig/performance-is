@@ -95,26 +95,13 @@ export JVM_MEM_OPTS="-Xms${heap_size} -Xmx${heap_size}"
 echo "JAVA_OPTS: $JAVA_OPTS"
 echo "JVM_MEM_OPTS: $JVM_MEM_OPTS"
 
-file_path="$carbon_home/repository/conf/deployment.toml"
-
 # Changing the server wide configurations for the test specs
 if [ "$test_spec" == "23-oidc_auth_code_redirect_without_consent_retrieve_user_attributes" ]; then
-    echo "Changing the server wide configurations for the test spec: $test_spec"
-    echo "[authentication.consent] -> prompt=false"
-
-    awk '/\[authentication.consent\]/ {flag=1;next} flag && /prompt=true/ {flag=0; print NR; exit}' "$file_path" | while read -r line_num
-    do
-        # If found, use sed to change prompt=true to prompt=false
-        sed -i "${line_num}s|prompt=true|prompt=false|" "$file_path" || echo "Editing deployment.toml file failed!"
-    done
+    echo "Changing the server wide configurations for the test spec: $test_spec with [authentication.consent] -> prompt=false"
+    sed -i "s|prompt=true|prompt=false|g" "$carbon_home"/repository/conf/deployment.toml || echo "Editing deployment.toml file failed!"
 else
     echo "Keeping default server wide configurations"
-
-    awk '/\[authentication.consent\]/ {flag=1;next} flag && /prompt=false/ {flag=0; print NR; exit}' "$file_path" | while read -r line_num
-    do
-        # If found, use sed to change prompt=false to prompt=true
-        sed -i "${line_num}s|prompt=false|prompt=true|" "$file_path" || echo "Editing deployment.toml file failed!"
-    done
+    sed -i "s|prompt=false|prompt=true|g" "$carbon_home"/repository/conf/deployment.toml || echo "Editing deployment.toml file failed!"
 fi
 
 echo "Restarting identity server..."
