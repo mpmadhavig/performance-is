@@ -96,7 +96,9 @@ echo "JAVA_OPTS: $JAVA_OPTS"
 echo "JVM_MEM_OPTS: $JVM_MEM_OPTS"
 
 # Changing the server wide configurations for the test specs
-if [ "$test_spec" == "23-oidc_auth_code_redirect_without_consent_retrieve_user_attributes" ]; then
+if [ "$test_spec" == "35-oidc_auth_code_redirect_without_consent_retrieve_user_attributes" ] ||
+   [ "$test_spec" == "37-oidc_auth_code_redirect_without_consent_retrieve_user_attributes_and_groups" ] ||
+   [ "$test_spec" == "39-oidc_auth_code_redirect_without_consent_retrieve_user_attributes_groups_and_roles" ]; then
     echo "Changing the server wide configurations for the test spec: $test_spec with [authentication.consent] -> prompt=false"
     sed -i "s|prompt=true|prompt=false|g" "$carbon_home"/repository/conf/deployment.toml || echo "Editing deployment.toml file failed!"
 else
