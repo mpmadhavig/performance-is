@@ -71,6 +71,13 @@ password = "wso2carbon"
 [truststore]
 name = "client-truststore.jks"
 password = "wso2carbon"
+type="JKS"
+
+[account_recovery.endpoint.auth]
+hash= "66cd9688a2ae068244ea01e70f0e230f5623b7fa4cdecb65070a09ec06452262"
+
+[identity.auth_framework.endpoint]
+app_password= "dashboard"
 
 [authentication_policy]
 disable_account_lock_handler=true
