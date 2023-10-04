@@ -84,7 +84,7 @@ declare -A test_scenario5=(
     [tenantMode]=false
     [skip]=false
     [modes]="FULL QUICK"
-#)
+)
 declare -A test_scenario6=(
     [name]="06-oidc_implicit_redirect_with_consent"
     [display_name]="OIDC Implicit Grant Redirect With Consent"
