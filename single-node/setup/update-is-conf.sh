@@ -110,7 +110,6 @@ echo "============================================"
 export JAVA_HOME=/usr/lib/jvm/jdk
 sudo su
 echo "export JAVA_HOME=/usr/lib/jvm/jdk" >>/etc/environment
-source /etc/environment
 
 ./wso2is/bin/wso2server.sh start
 sleep 50s
