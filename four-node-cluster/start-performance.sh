@@ -470,6 +470,9 @@ echo "$setup_is_command"
 # Handle any error and let the script continue.
 $setup_is_command || echo "Remote ssh command to setup IS node 4 through bastion failed."
 
+echo "Sleep for 20m"
+sleep 20m
+
 echo ""
 echo "Running performance tests..."
 echo "============================================"
