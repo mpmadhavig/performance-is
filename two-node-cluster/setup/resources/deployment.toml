@@ -11,6 +11,11 @@ create_admin_account = true
 [user_store]
 type = "database_unique_id"
 
+[user_store.properties]
+CaseInsensitiveUsername = false
+SCIMEnabled=true
+IsBulkImportSupported=false
+
 [database.identity_db]
 driver = "com.mysql.jdbc.Driver"
 url = "jdbc:mysql://wso2isdbinstance2.cd3cwezibdu8.us-east-1.rds.amazonaws.com:3306/IDENTITY_DB?useSSL=false&amp;rewriteBatchedStatements=true"
@@ -58,9 +63,8 @@ file_name = "wso2carbon.jks"
 password = "wso2carbon"
 
 [truststore]
-file_name="client-truststore.jks"
-password="wso2carbon"
-type="JKS"
+name = "client-truststore.jks"
+password = "wso2carbon"
 
 [account_recovery.endpoint.auth]
 hash= "66cd9688a2ae068244ea01e70f0e230f5623b7fa4cdecb65070a09ec06452262"
@@ -68,5 +72,15 @@ hash= "66cd9688a2ae068244ea01e70f0e230f5623b7fa4cdecb65070a09ec06452262"
 [identity.auth_framework.endpoint]
 app_password= "dashboard"
 
+[authentication_policy]
+disable_account_lock_handler=true
+
+[identity_mgt.events.schemes.WorkflowPendingUserAuthnHandler]
+subscriptions=[]
+
+[authorization_manager.properties]
+GroupAndRoleSeparationEnabled=false
+
 [oauth.grant_type.jwt]
 iat_validity_period=1440
+
