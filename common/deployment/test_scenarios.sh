@@ -98,15 +98,15 @@
 #    [skip]=false
 #    [modes]="FULL"
 #)
-#declare -A test_scenario9=(
-#    [name]="09-saml2_sso_redirect_binding"
-#    [display_name]="SAML2 SSO Redirect Binding"
-#    [description]="Obtain a SAML 2 assertion response using redirect binding."
-#    [jmx]="saml/SAML2_SSO_Redirect_Binding.jmx"
-#    [tenantMode]=false
-#    [skip]=false
-#    [modes]="FULL QUICK PUBLISH"
-#)
+declare -A test_scenario9=(
+    [name]="09-saml2_sso_redirect_binding"
+    [display_name]="SAML2 SSO Redirect Binding"
+    [description]="Obtain a SAML 2 assertion response using redirect binding."
+    [jmx]="saml/SAML2_SSO_Redirect_Binding.jmx"
+    [tenantMode]=false
+    [skip]=false
+    [modes]="FULL QUICK PUBLISH"
+)
 ##declare -A test_scenario10=(
 ##    [name]="10-oauth_auth_code_redirect_with_consent_tenant"
 ##    [display_name]="Auth Code Grant Redirect With Consent"
@@ -386,12 +386,12 @@
 ##    [skip]=true
 ##    [modes]="FULL QUICK"
 ##)
-declare -A test_scenario40=(
-    [name]="40-Token_Exchange_Grant"
-    [display_name]="Token Exchange Grant"
-    [description]="Obtain an access token and an id token using the OAuth Token Exchange grant type."
-    [jmx]="oauth/Token_Exchange_Grant.jmx"
-    [tenantMode]=false
-    [skip]=false
-    [modes]="FULL QUICK PUBLISH"
-)
+#declare -A test_scenario40=(
+#    [name]="40-Token_Exchange_Grant"
+#    [display_name]="Token Exchange Grant"
+#    [description]="Obtain an access token and an id token using the OAuth Token Exchange grant type."
+#    [jmx]="oauth/Token_Exchange_Grant.jmx"
+#    [tenantMode]=false
+#    [skip]=false
+#    [modes]="FULL QUICK PUBLISH"
+#)
