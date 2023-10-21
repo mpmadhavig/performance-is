@@ -81,4 +81,4 @@ subscriptions=[]
 GroupAndRoleSeparationEnabled=false
 
 [oauth.grant_type.jwt]
-iat_validity_period=1440
+iat_validity_period=86400
