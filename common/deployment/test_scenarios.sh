@@ -206,15 +206,15 @@
 ##  [skip]=true
 ##  [modes]="FULL DEVICE_FLOW"
 ##)
-#declare -A test_scenario21=(
-#    [name]="21-oauth_jwt_grant_tenant"
-#    [display_name]="Jwt Grant Type"
-#    [description]="Obtain an access token using the OAuth 2.0 jwt grant type."
-#    [jmx]="oauth/OAuth_Jwt_Grant.jmx"
-#    [tenantMode]=false
-#    [skip]=false
-#    [modes]="FULL JWT_GRANT_FLOW PUBLISH"
-#)
+declare -A test_scenario21=(
+    [name]="21-oauth_jwt_grant_tenant"
+    [display_name]="Jwt Grant Type"
+    [description]="Obtain an access token using the OAuth 2.0 jwt grant type."
+    [jmx]="oauth/OAuth_Jwt_Grant.jmx"
+    [tenantMode]=false
+    [skip]=false
+    [modes]="FULL JWT_GRANT_FLOW PUBLISH"
+)
 ##declare -A test_scenario22=(
 ##    [name]="22-oauth_jwt_grant_tenant"
 ##    [display_name]="Jwt Grant Type"
@@ -386,12 +386,12 @@
 ##    [skip]=true
 ##    [modes]="FULL QUICK"
 ##)
-declare -A test_scenario40=(
-    [name]="40-Token_Exchange_Grant"
-    [display_name]="Token Exchange Grant"
-    [description]="Obtain an access token and an id token using the OAuth Token Exchange grant type."
-    [jmx]="oauth/Token_Exchange_Grant.jmx"
-    [tenantMode]=false
-    [skip]=false
-    [modes]="FULL QUICK PUBLISH"
-)
+#declare -A test_scenario40=(
+#    [name]="40-Token_Exchange_Grant"
+#    [display_name]="Token Exchange Grant"
+#    [description]="Obtain an access token and an id token using the OAuth Token Exchange grant type."
+#    [jmx]="oauth/Token_Exchange_Grant.jmx"
+#    [tenantMode]=false
+#    [skip]=false
+#    [modes]="FULL QUICK PUBLISH"
+#)
