@@ -58,6 +58,9 @@ members = ["member_ip_2:4000", "member_ip_1:4000"]
 [admin_service]
 wsdl.enable=false
 
+[authentication.consent]
+prompt = false
+
 [keystore.primary]
 file_name = "wso2carbon.jks"
 password = "wso2carbon"
