@@ -16,6 +16,11 @@ type = "database_unique_id"
 #connection_password = "admin"
 #base_dn = "dc=wso2,dc=org"]
 
+[user_store.properties]
+CaseInsensitiveUsername = false
+SCIMEnabled=true
+IsBulkImportSupported=false
+
 #[realm_manager]
 #data_source = "WSO2USER_DB"
 
