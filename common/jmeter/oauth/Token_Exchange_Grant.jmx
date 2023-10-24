@@ -48,6 +48,11 @@
             <stringProp name="Argument.value">/home/ubuntu/jwt_token.txt</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
+          <elementProp name="scope" elementType="Argument">
+            <stringProp name="Argument.name">scope</stringProp>
+            <stringProp name="Argument.value">openid</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
         </collectionProp>
       </Arguments>
       <hashTree/>
@@ -278,6 +283,13 @@ if (y == 0) {
                 <stringProp name="Argument.metadata">=</stringProp>
                 <boolProp name="HTTPArgument.use_equals">true</boolProp>
                 <stringProp name="Argument.name">grant_type</stringProp>
+              </elementProp>
+              <elementProp name="scope" elementType="HTTPArgument">
+                <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                <stringProp name="Argument.value">${scope}%20${__Random(1,10000000)}</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+                <boolProp name="HTTPArgument.use_equals">true</boolProp>
+                <stringProp name="Argument.name">scope</stringProp>
               </elementProp>
             </collectionProp>
           </elementProp>
