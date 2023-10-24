@@ -287,24 +287,24 @@ declare -A test_scenario29=(
     [skip]=false
     [modes]="FULL QUICK PUBLISH"
 )
-#declare -A test_scenario30=(
-#    [name]="30-oidc_password_grant_retrieve_user_attributes"
-#    [display_name]="OIDC Password Grant Type Retrieve User Attributes"
-#    [description]="Obtain an access token and an id token using the OAuth 2.0 password grant type."
-#    [jmx]="oidc/OIDC_Password_Grant_Retrieve_User_Attributes.jmx"
-#    [tenantMode]=true
-#    [skip]=true
-#    [modes]="FULL QUICK"
-#)
-#declare -A test_scenario31=(
-#    [name]="31-oidc_password_grant_retrieve_user_attributes_and_groups"
-#    [display_name]="OIDC Password Grant Type Retrieve User Attributes and Groups"
-#    [description]="Obtain an access token and an id token using the OAuth 2.0 password grant type."
-#    [jmx]="oidc/OIDC_Password_Grant_Retrieve_User_Attributes_And_Groups.jmx"
-#    [tenantMode]=false
-#    [skip]=false
-#    [modes]="FULL QUICK PUBLISH"
-#)
+declare -A test_scenario30=(
+    [name]="30-oidc_password_grant_retrieve_user_attributes"
+    [display_name]="OIDC Password Grant Type Retrieve User Attributes"
+    [description]="Obtain an access token and an id token using the OAuth 2.0 password grant type."
+    [jmx]="oidc/OIDC_Password_Grant_Retrieve_User_Attributes.jmx"
+    [tenantMode]=true
+    [skip]=true
+    [modes]="FULL QUICK"
+)
+declare -A test_scenario31=(
+    [name]="31-oidc_password_grant_retrieve_user_attributes_and_groups"
+    [display_name]="OIDC Password Grant Type Retrieve User Attributes and Groups"
+    [description]="Obtain an access token and an id token using the OAuth 2.0 password grant type."
+    [jmx]="oidc/OIDC_Password_Grant_Retrieve_User_Attributes_And_Groups.jmx"
+    [tenantMode]=false
+    [skip]=false
+    [modes]="FULL QUICK PUBLISH"
+)
 ##declare -A test_scenario32=(
 ##    [name]="32-oidc_password_grant_retrieve_user_attributes_and_groups"
 ##    [display_name]="OIDC Password Grant Type Retrieve User Attributes and Groups"
@@ -314,15 +314,15 @@ declare -A test_scenario29=(
 ##    [skip]=true
 ##    [modes]="FULL QUICK"
 ##)
-#declare -A test_scenario33=(
-#    [name]="33-oidc_password_grant_retrieve_user_attributes_groups_and_roles"
-#    [display_name]="OIDC Password Grant Type Retrieve User Attributes Groups and Roles"
-#    [description]="Obtain an access token and an id token using the OAuth 2.0 password grant type."
-#    [jmx]="oidc/OIDC_Password_Grant_Retrieve_User_Attributes_Groups_And_Roles.jmx"
-#    [tenantMode]=false
-#    [skip]=false
-#    [modes]="FULL QUICK PUBLISH"
-#)
+declare -A test_scenario33=(
+    [name]="33-oidc_password_grant_retrieve_user_attributes_groups_and_roles"
+    [display_name]="OIDC Password Grant Type Retrieve User Attributes Groups and Roles"
+    [description]="Obtain an access token and an id token using the OAuth 2.0 password grant type."
+    [jmx]="oidc/OIDC_Password_Grant_Retrieve_User_Attributes_Groups_And_Roles.jmx"
+    [tenantMode]=false
+    [skip]=false
+    [modes]="FULL QUICK PUBLISH"
+)
 ##declare -A test_scenario34=(
 ##    [name]="34-oidc_password_grant_retrieve_user_attributes_groups_and_roles"
 ##    [display_name]="OIDC Password Grant Type Retrieve User Attributes Groups and Roles"
@@ -332,15 +332,15 @@ declare -A test_scenario29=(
 ##    [skip]=true
 ##    [modes]="FULL QUICK"
 ##)
-#declare -A test_scenario35=(
-#    [name]="35-oidc_auth_code_redirect_without_consent_retrieve_user_attributes"
-#    [display_name]="OIDC Auth Code Grant Redirect Without Consent Retrieve User Attributes"
-#    [description]="Obtain an access token and an id token using the OAuth 2.0 authorization code grant type."
-#    [jmx]="oidc/OIDC_AuthCode_Redirect_WithoutConsent_Retrieve_User_Attributes.jmx"
-#    [tenantMode]=false
-#    [skip]=false
-#    [modes]="FULL QUICK PUBLISH"
-#)
+declare -A test_scenario35=(
+    [name]="35-oidc_auth_code_redirect_without_consent_retrieve_user_attributes"
+    [display_name]="OIDC Auth Code Grant Redirect Without Consent Retrieve User Attributes"
+    [description]="Obtain an access token and an id token using the OAuth 2.0 authorization code grant type."
+    [jmx]="oidc/OIDC_AuthCode_Redirect_WithoutConsent_Retrieve_User_Attributes.jmx"
+    [tenantMode]=false
+    [skip]=false
+    [modes]="FULL QUICK PUBLISH"
+)
 ##declare -A test_scenario36=(
 ##    [name]="36-oidc_auth_code_redirect_without_consent_retrieve_user_attributes"
 ##    [display_name]="OIDC Auth Code Grant Redirect Without Consent Retrieve User Attributes"
@@ -350,15 +350,15 @@ declare -A test_scenario29=(
 ##    [skip]=true
 ##    [modes]="FULL QUICK"
 ##)
-#declare -A test_scenario37=(
-#    [name]="37-oidc_auth_code_redirect_without_consent_retrieve_user_attributes_and_groups"
-#    [display_name]="OIDC Auth Code Grant Redirect Without Consent Retrieve User Attributes and Groups"
-#    [description]="Obtain an access token and an id token using the OAuth 2.0 authorization code grant type."
-#    [jmx]="oidc/OIDC_AuthCode_Redirect_WithoutConsent_Retrieve_User_Attributes_And_Groups.jmx"
-#    [tenantMode]=false
-#    [skip]=false
-#    [modes]="FULL QUICK PUBLISH"
-#)
+declare -A test_scenario37=(
+    [name]="37-oidc_auth_code_redirect_without_consent_retrieve_user_attributes_and_groups"
+    [display_name]="OIDC Auth Code Grant Redirect Without Consent Retrieve User Attributes and Groups"
+    [description]="Obtain an access token and an id token using the OAuth 2.0 authorization code grant type."
+    [jmx]="oidc/OIDC_AuthCode_Redirect_WithoutConsent_Retrieve_User_Attributes_And_Groups.jmx"
+    [tenantMode]=false
+    [skip]=false
+    [modes]="FULL QUICK PUBLISH"
+)
 ##declare -A test_scenario38=(
 ##    [name]="38-oidc_auth_code_redirect_without_consent_retrieve_user_attributes_and_groups"
 ##    [display_name]="OIDC Auth Code Grant Redirect Without Consent Retrieve User Attributes and Groups"
@@ -368,15 +368,15 @@ declare -A test_scenario29=(
 ##    [skip]=true
 ##    [modes]="FULL QUICK"
 ##)
-#declare -A test_scenario39=(
-#    [name]="39-oidc_auth_code_redirect_without_consent_retrieve_user_attributes_groups_and_roles"
-#    [display_name]="OIDC Auth Code Grant Redirect Without Consent Retrieve User Attributes Groups and Roles"
-#    [description]="Obtain an access token and an id token using the OAuth 2.0 authorization code grant type."
-#    [jmx]="oidc/OIDC_AuthCode_Redirect_WithoutConsent_Retrieve_User_Attributes_Groups_And_Roles.jmx"
-#    [tenantMode]=false
-#    [skip]=false
-#    [modes]="FULL QUICK PUBLISH"
-#)
+declare -A test_scenario39=(
+    [name]="39-oidc_auth_code_redirect_without_consent_retrieve_user_attributes_groups_and_roles"
+    [display_name]="OIDC Auth Code Grant Redirect Without Consent Retrieve User Attributes Groups and Roles"
+    [description]="Obtain an access token and an id token using the OAuth 2.0 authorization code grant type."
+    [jmx]="oidc/OIDC_AuthCode_Redirect_WithoutConsent_Retrieve_User_Attributes_Groups_And_Roles.jmx"
+    [tenantMode]=false
+    [skip]=false
+    [modes]="FULL QUICK PUBLISH"
+)
 ##declare -A test_scenario40=(
 ##    [name]="28-oidc_auth_code_redirect_without_consent_retrieve_user_attributes_groups_and_roles"
 ##    [display_name]="OIDC Auth Code Grant Redirect Without Consent Retrieve User Attributes Groups and Roles"
