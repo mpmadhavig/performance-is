@@ -32,6 +32,10 @@ username = "wso2carbon"
 password = "wso2carbon"
 [database.identity_db.pool_options]
 maxActive = "400"
+jdbcInterceptors = "org.apache.tomcat.jdbc.pool.interceptor.SlowQueryReport(threshold=100);"
+logAbandoned = true
+removeAbandoned = true
+removeAbandonedTimeout = "60"
 
 [database.shared_db]
 driver = "com.mysql.jdbc.Driver"
@@ -41,6 +45,10 @@ username = "wso2carbon"
 password = "wso2carbon"
 [database.shared_db.pool_options]
 maxActive = "400"
+jdbcInterceptors = "org.apache.tomcat.jdbc.pool.interceptor.SlowQueryReport(threshold=100);"
+logAbandoned = true
+removeAbandoned = true
+removeAbandonedTimeout = "60"
 
 [database.user]
 driver = "com.mysql.jdbc.Driver"
@@ -50,6 +58,10 @@ username = "wso2carbon"
 password = "wso2carbon"
 [database.user.pool_options]
 maxActive = "400"
+jdbcInterceptors = "org.apache.tomcat.jdbc.pool.interceptor.SlowQueryReport(threshold=100);"
+logAbandoned = true
+removeAbandoned = true
+removeAbandonedTimeout = "60"
 
 [transport.https.properties]
 maxThreads = "400"
