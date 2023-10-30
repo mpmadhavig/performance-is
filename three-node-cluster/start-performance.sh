@@ -419,6 +419,9 @@ ssh -i "$key_file" -o "StrictHostKeyChecking=no" -t ubuntu@"$bastion_node_ip" "c
     mv wso2is-* wso2is"
 $create_db_command
 
+# Sleep 10m
+sleep 10m
+
 echo ""
 echo "Running IS node 1 setup script..."
 echo "============================================"
