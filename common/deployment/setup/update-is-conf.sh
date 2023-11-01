@@ -117,16 +117,16 @@ if [[ $no_of_nodes -eq 1 ]]; then
     echo "============================================"
     mysql -h "$db_instance_ip" -u wso2carbon -pwso2carbon < resources/createDB.sql
 fi
-if [[ $no_of_nodes -gt 1 ]]; then
-#    sed -i "s|member_ip_1|$wso2_is_1_ip|g" "$carbon_home"/repository/conf/deployment.toml || echo "Editing deployment.toml file failed!"
-#    sed -i "s|member_ip_2|$wso2_is_2_ip|g" "$carbon_home"/repository/conf/deployment.toml || echo "Editing deployment.toml file failed!"
-fi
-if [[ $no_of_nodes -gt 2 ]]; then
-#    sed -i "s|member_ip_3|$wso2_is_3_ip|g" "$carbon_home"/repository/conf/deployment.toml || echo "Editing deployment.toml file failed!"
-fi
-if [[ $no_of_nodes -gt 3 ]]; then
-#    sed -i "s|member_ip_4|$wso2_is_4_ip|g" "$carbon_home"/repository/conf/deployment.toml || echo "Editing deployment.toml file failed!"
-fi
+#if [[ $no_of_nodes -gt 1 ]]; then
+##    sed -i "s|member_ip_1|$wso2_is_1_ip|g" "$carbon_home"/repository/conf/deployment.toml || echo "Editing deployment.toml file failed!"
+##    sed -i "s|member_ip_2|$wso2_is_2_ip|g" "$carbon_home"/repository/conf/deployment.toml || echo "Editing deployment.toml file failed!"
+#fi
+#if [[ $no_of_nodes -gt 2 ]]; then
+##    sed -i "s|member_ip_3|$wso2_is_3_ip|g" "$carbon_home"/repository/conf/deployment.toml || echo "Editing deployment.toml file failed!"
+#fi
+#if [[ $no_of_nodes -gt 3 ]]; then
+##    sed -i "s|member_ip_4|$wso2_is_4_ip|g" "$carbon_home"/repository/conf/deployment.toml || echo "Editing deployment.toml file failed!"
+#fi
 
 echo ""
 echo "Starting WSO2 IS server..."
