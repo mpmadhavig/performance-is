@@ -420,9 +420,9 @@ echo "$setup_bastion_node_command"
 # Handle any error and let the script continue.
 $setup_bastion_node_command || echo "Remote ssh command failed."
 
-echo ""
-echo "Sleep for FD Limit"
-sleep 30m
+#echo ""
+#echo "Sleep for FD Limit"
+#sleep 30m
 
 echo ""
 echo "Creating databases in RDS..."
@@ -435,7 +435,7 @@ ssh -i "$key_file" -o "StrictHostKeyChecking=no" -t ubuntu@"$bastion_node_ip" "c
 $create_db_command
 
 # Sleep 10m
-sleep 10m
+#sleep 10m
 
 echo ""
 echo "Running IS node 1 setup script..."
