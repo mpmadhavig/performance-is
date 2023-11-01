@@ -57,7 +57,7 @@ members = ["member_ip_2:4000", "member_ip_1:4000"]
 
 [hazelcast]
 "hazelcast.shutdownhook.enabled" = "false"
-"hazelcast.logging.type"= "log4j"
+"hazelcast.logging.type"= "log4j2"
 
 [admin_service]
 wsdl.enable=false
