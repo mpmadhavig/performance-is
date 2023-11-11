@@ -40,7 +40,7 @@
           </elementProp>
           <elementProp name="scope" elementType="Argument">
             <stringProp name="Argument.name">scope</stringProp>
-            <stringProp name="Argument.value">openid%20profile%20address%20email%20groups%20roles</stringProp>
+            <stringProp name="Argument.value">openid%20profile%20address%20email</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="consumerKeyPrefix" elementType="Argument">
@@ -483,12 +483,12 @@ ${password}</stringProp>
           </RegexExtractor>
           <hashTree/>
         </hashTree>
-        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="true">
+        <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If Controller" enabled="false">
           <stringProp name="IfController.condition">&quot;${code}&quot;==&quot;&quot;</stringProp>
           <boolProp name="IfController.evaluateAll">false</boolProp>
         </IfController>
         <hashTree>
-          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Send Consent Approve Request" enabled="true">
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Send Consent Approve Request" enabled="false">
             <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
               <collectionProp name="Arguments.arguments">
                 <elementProp name="sessionDataKeyConsent" elementType="HTTPArgument">
