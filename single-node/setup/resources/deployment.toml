@@ -80,3 +80,6 @@ subscriptions=[]
 
 [authorization_manager.properties]
 GroupAndRoleSeparationEnabled=false
+
+[authentication.endpoint.consent_page_redirect_params]
+allow=true
