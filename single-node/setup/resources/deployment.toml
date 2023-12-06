@@ -64,13 +64,148 @@ prompt = true
 [admin_service]
 wsdl.enable=false
 
-[keystore.tls]
-name = "wso2carbon.jks"
+[keystore.primary]
+file_name = "wso2carbon.jks"
 password = "wso2carbon"
 
 [truststore]
-name = "client-truststore.jks"
-password = "wso2carbon"
+file_name="client-truststore.jks"
+password="wso2carbon"
+type="JKS"
+
+[account_recovery.endpoint.auth]
+hash= "66cd9688a2ae068244ea01e70f0e230f5623b7fa4cdecb65070a09ec06452262"
+
+[identity.auth_framework.endpoint]
+app_password= "dashboard"
+
+# The KeyStore which is used for encrypting/decrypting internal data. By default the primary keystore is used as the internal keystore.
+
+#[keystore.internal]
+#file_name = "$ref{keystore.primary.file_name}"
+#type = "$ref{keystore.primary.type}"
+#password = "$ref{keystore.primary.password}"
+#alias = "$ref{keystore.primary.alias}"
+#key_password = "$ref{keystore.primary.key_password}"
+
+# The KeyStore which is used for tls communication. By default the primary keystore is used as the tls keystore.
+
+#[keystore.tls]
+#file_name = "$ref{keystore.primary.file_name}"
+#type = "$ref{keystore.primary.type}"
+#password = "$ref{keystore.primary.password}"
+#alias = "$ref{keystore.primary.alias}"
+#key_password = "$ref{keystore.primary.key_password}"
+
+#Google reCAPTCHA settings.
+
+#[recaptcha]
+#enabled = true
+#api_url = "https://www.google.com/recaptcha/api.js"
+#verify_url = "https://www.google.com/recaptcha/api/siteverify"
+#site_key = ""
+#secret_key = ""
+
+# SMTP email sender settings.
+#[output_adapter.email]
+#from_address= "abcd@gmail.com"
+#username= "abcd"
+#password= "xxxx"
+#hostname= "smtp.gmail.com"
+#port= 587
+
+[oauth]
+enable_sha256_params=false
+enable_sha256_jwk_thumbprint=false
+use_client_id_as_sub_claim_for_app_tokens=false
+remove_username_from_introspection_response_for_app_tokens=false
+
+[legacy_authz_runtime]
+enable=true
+
+[tenant_context]
+enable_tenant_qualified_urls="false"
+enable_tenanted_sessions="false"
+
+[session.nonce.cookie]
+default_whitelist_authenticators=[]
+
+[identity_mgt]
+callback_url = "[http://localhost:9443].*[/authenticationendpoint/login.do]*"
+
+[authentication.endpoint.consent_page_redirect_params]
+allow=true
+
+[saml]
+metadata.sp_enable_sha256_alg=false
+metadata.idp_enable_sha256_alg=false
+enable_saml_idp_init_logout_response_signing=false
+
+[passive_sts]
+enable_default_signature_and_digest_alg=false
+enable_logout_wreply_validation = false
+
+[mex]
+enable_sha256_alg=false
+
+[oauth.oidc]
+allow_additional_params_from_post_logout_redirect_uri=true
+[oauth.grant_type.client_credentials]
+skip_oidc_claims=false
+allow_public_client="true"
+
+[signature_util]
+enable_sha256_algo=false
+
+[tenant_mgt]
+signing_alg = "MD5withRSA"
+
+[identity_mgt.recovery]
+enable_v1_api=true
+
+[event.default_listener.mutual_tls_authenticator]
+priority=158
+
+[idp_role_management]
+return_manually_added_local_roles=false
+
+[identity_mgt.password_reset_email.otp]
+send_otp_in_email=false
+use_uppercase_in_otp=true
+use_lowercase_in_otp=true
+use_numeric_in_otp=true
+otp_length=6
+
+[identity_mgt.user_onboarding.otp]
+send_otp_in_email=false
+use_uppercase_in_otp=true
+use_lowercase_in_otp=true
+use_numeric_in_otp=true
+otp_length=6
+
+[identity_mgt.user_self_registration.otp]
+send_otp_in_email=false
+use_uppercase_in_otp=true
+use_lowercase_in_otp=true
+use_numeric_in_otp=true
+otp_length=6
+
+[identity_mgt.lite_user_registration.otp]
+send_otp_in_email=false
+use_uppercase_in_otp=true
+use_lowercase_in_otp=true
+use_numeric_in_otp=true
+otp_length=6
+
+[identity_mgt.user_claim_update.otp]
+send_otp_in_email=false
+use_uppercase_in_otp=true
+use_lowercase_in_otp=true
+use_numeric_in_otp=true
+otp_length=6
+
+[oauth.revoked_token_headers_in_response]
+enable=true
 
 [authentication_policy]
 disable_account_lock_handler=true
