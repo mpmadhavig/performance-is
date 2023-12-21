@@ -223,3 +223,6 @@ subscriptions=[]
 
 [authorization_manager.properties]
 GroupAndRoleSeparationEnabled=false
+
+[database.identity_db.pool_options]
+maxActive = 100
