@@ -128,9 +128,6 @@ disable_account_lock_handler=true
 [identity_mgt.events.schemes.WorkflowPendingUserAuthnHandler]
 subscriptions=[]
 
-[authorization_manager.properties]
-GroupAndRoleSeparationEnabled=false
-
 [session_data.session_data_persist.session_and_temp_data_separation_enabled]
 enable=true
 
