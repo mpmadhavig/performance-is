@@ -49,7 +49,7 @@ declare -A test_scenario1=(
     [skip]=false
     [modes]="FULL"
 )
-# declare -A test_scenario2=(
+declare -A test_scenario2=(
     [name]="02-oauth_implicit_redirect_with_consent"
     [display_name]="Implicit Grant Redirect With Consent"
     [description]="Obtain an access token using the OAuth 2.0 implicit grant type."
