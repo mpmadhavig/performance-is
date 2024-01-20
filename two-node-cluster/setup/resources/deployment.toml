@@ -10,33 +10,75 @@ create_admin_account = true
 
 [user_store]
 type = "database_unique_id"
+###Configurations for more user store types
+#connection_url = "ldap://localhost:${Ports.EmbeddedLDAP.LDAPServerPort}"
+#connection_name = "uid=admin,ou=system"
+#connection_password = "admin"
+#base_dn = "dc=wso2,dc=org"
+[user_store.properties]
+CaseInsensitiveUsername = false
+SCIMEnabled=true
+IsBulkImportSupported=false
+
+#[realm_manager]
+#data_source = "WSO2USER_DB"
 
 [database.identity_db]
-type = "h2"
-url = "jdbc:h2:./repository/database/WSO2IDENTITY_DB;DB_CLOSE_ON_EXIT=FALSE;LOCK_TIMEOUT=60000"
+driver = "com.mysql.jdbc.Driver"
+url = "jdbc:mysql://wso2isdbinstance2.cd3cwezibdu8.us-east-1.rds.amazonaws.com:3306/IDENTITY_DB?useSSL=false&amp;rewriteBatchedStatements=true"
+validation_query = "SELECT 1"
 username = "wso2carbon"
 password = "wso2carbon"
+[database.identity_db.pool_options]
+maxActive = "300"
 
 [database.shared_db]
-type = "h2"
-url = "jdbc:h2:./repository/database/WSO2SHARED_DB;DB_CLOSE_ON_EXIT=FALSE;LOCK_TIMEOUT=60000"
+driver = "com.mysql.jdbc.Driver"
+url = "jdbc:mysql://wso2isdbinstance2.cd3cwezibdu8.us-east-1.rds.amazonaws.com:3306/REG_DB?useSSL=false&amp;rewriteBatchedStatements=true"
+validation_query = "SELECT 1"
 username = "wso2carbon"
 password = "wso2carbon"
+[database.shared_db.pool_options]
+maxActive = "300"
 
-[keystore.primary]
-file_name = "wso2carbon.jks"
+[database.user]
+driver = "com.mysql.jdbc.Driver"
+url = "jdbc:mysql://wso2isdbinstance2.cd3cwezibdu8.us-east-1.rds.amazonaws.com:3306/UM_DB?useSSL=false&amp;rewriteBatchedStatements=true"
+validation_query = "SELECT 1"
+username = "wso2carbon"
+password = "wso2carbon"
+[database.user.pool_options]
+maxActive = "300"
+
+[transport.http]
+maxThreads = "500"
+acceptCount = "500"
+
+[transport.https]
+maxThreads = "500"
+acceptCount = "500"
+
+[authentication.consent]
+prompt = true
+
+[admin_service]
+wsdl.enable=false
+
+[keystore.tls]
+name = "wso2carbon.jks"
 password = "wso2carbon"
 
 [truststore]
-file_name="client-truststore.jks"
-password="wso2carbon"
-type="JKS"
+name = "client-truststore.jks"
+password = "wso2carbon"
 
-[account_recovery.endpoint.auth]
-hash= "66cd9688a2ae068244ea01e70f0e230f5623b7fa4cdecb65070a09ec06452262"
-
-[identity.auth_framework.endpoint]
-app_password= "dashboard"
+[clustering]
+#membership_scheme = true
+#domain = "is590.qa.com"
+membership_scheme = "wka"
+local_member_host = "member_ip_1"
+localMemberPort = "4000"
+members = ["member_ip_2:4000", "member_ip_1:4000"]
 
 [authentication_policy]
 disable_account_lock_handler=true
