@@ -76,15 +76,15 @@ db_password="wso2carbon"
 #     [skip]=false
 #     [modes]="FULL"
 # )
-declare -A test_scenario5=(
-    [name]="05-oidc_auth_code_redirect_with_consent"
-    [display_name]="OIDC Auth Code Grant Redirect With Consent"
-    [description]="Obtain an access token and an id token using the OAuth 2.0 authorization code grant type."
-    [jmx]="oidc/OIDC_AuthCode_Redirect_WithConsent.jmx"
-    [tenantMode]=false
-    [skip]=false
-    [modes]="FULL QUICK"
-)
+# declare -A test_scenario5=(
+#     [name]="05-oidc_auth_code_redirect_with_consent"
+#     [display_name]="OIDC Auth Code Grant Redirect With Consent"
+#     [description]="Obtain an access token and an id token using the OAuth 2.0 authorization code grant type."
+#     [jmx]="oidc/OIDC_AuthCode_Redirect_WithConsent.jmx"
+#     [tenantMode]=false
+#     [skip]=false
+#     [modes]="FULL QUICK"
+# )
 # declare -A test_scenario6=(
 #     [name]="06-oidc_implicit_redirect_with_consent"
 #     [display_name]="OIDC Implicit Grant Redirect With Consent"
@@ -112,15 +112,15 @@ declare -A test_scenario5=(
 #     [skip]=false
 #     [modes]="FULL"
 # )
-# declare -A test_scenario9=(
-#     [name]="09-saml2_sso_redirect_binding"
-#     [display_name]="SAML2 SSO Redirect Binding"
-#     [description]="Obtain a SAML 2 assertion response using redirect binding."
-#     [jmx]="saml/SAML2_SSO_Redirect_Binding.jmx"
-#     [tenantMode]=false
-#     [skip]=false
-#     [modes]="FULL QUICK"
-# )
+declare -A test_scenario9=(
+    [name]="09-saml2_sso_redirect_binding"
+    [display_name]="SAML2 SSO Redirect Binding"
+    [description]="Obtain a SAML 2 assertion response using redirect binding."
+    [jmx]="saml/SAML2_SSO_Redirect_Binding.jmx"
+    [tenantMode]=false
+    [skip]=false
+    [modes]="FULL QUICK"
+)
 # declare -A test_scenario10=(
 #    [name]="10-oauth_auth_code_redirect_with_consent_tenant"
 #    [display_name]="Auth Code Grant Redirect With Consent"
