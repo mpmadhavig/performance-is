@@ -42,7 +42,7 @@ default_db_storage="100"
 db_storage=$default_db_storage
 default_db_instance_type=db.m4.2xlarge
 db_instance_type=$default_db_instance_type
-default_is_instance_type=c5.xlarge
+default_is_instance_type=c5.2xlarge
 wso2_is_instance_type="$default_is_instance_type"
 default_bastion_instance_type=c5.xlarge
 bastion_instance_type="$default_bastion_instance_type"
@@ -247,6 +247,13 @@ echo ""
 echo "Validating stack..."
 echo "============================================"
 aws cloudformation validate-template --template-body file://new-2-node-cluster.yml
+
+echo " before - $(wso2_is_instance_type)"
+
+# Hard code $wso2_is_instance_type value to c5.2xlarge
+wso2_is_instance_type="c5.2xlarge"
+
+echo "after - $(wso2_is_instance_type)"
 
 # Save metadata
 test_parameters_json='.'
