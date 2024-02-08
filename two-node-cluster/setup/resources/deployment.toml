@@ -64,7 +64,7 @@ prompt = true
 [admin_service]
 wsdl.enable=false
 
-keystore.primary]
+[keystore.primary]
 file_name = "wso2carbon.p12"
 password = "wso2carbon"
 
