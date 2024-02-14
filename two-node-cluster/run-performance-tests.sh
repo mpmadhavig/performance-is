@@ -85,15 +85,15 @@ db_password="wso2carbon"
 #     [skip]=false
 #     [modes]="FULL QUICK"
 # )
-# declare -A test_scenario6=(
-#     [name]="06-oidc_implicit_redirect_with_consent"
-#     [display_name]="OIDC Implicit Grant Redirect With Consent"
-#     [description]="Obtain an access token and an id token using the OAuth 2.0 implicit grant type."
-#     [jmx]="oidc/OIDC_Implicit_Redirect_WithConsent.jmx"
-#     [tenantMode]=false
-#     [skip]=false
-#     [modes]="FULL"
-# )
+declare -A test_scenario6=(
+    [name]="06-oidc_implicit_redirect_with_consent"
+    [display_name]="OIDC Implicit Grant Redirect With Consent"
+    [description]="Obtain an access token and an id token using the OAuth 2.0 implicit grant type."
+    [jmx]="oidc/OIDC_Implicit_Redirect_WithConsent.jmx"
+    [tenantMode]=false
+    [skip]=false
+    [modes]="FULL"
+)
 declare -A test_scenario7=(
     [name]="07-oidc_password_grant"
     [display_name]="OIDC Password Grant Type"
@@ -103,24 +103,15 @@ declare -A test_scenario7=(
     [skip]=false
     [modes]="FULL QUICK"
 )
-declare -A test_scenario7=(
-    [name]="08-oidc_password_grant"
-    [display_name]="OIDC Password Grant Type 2"
-    [description]="Obtain an access token and an id token using the OAuth 2.0 password grant type."
-    [jmx]="oidc/OIDC_Password_Grant.jmx"
+declare -A test_scenario8=(
+    [name]="08-oidc_request_path_authenticator"
+    [display_name]="OIDC Auth Code Request Path Authenticator With Consent"
+    [description]="Obtain an access token and an id token using the request path authenticator."
+    [jmx]="oidc/OIDC_AuthCode_Request_Path_Authenticator_WithConsent.jmx"
     [tenantMode]=false
     [skip]=false
-    [modes]="FULL QUICK"
+    [modes]="FULL"
 )
-# declare -A test_scenario8=(
-#     [name]="08-oidc_request_path_authenticator"
-#     [display_name]="OIDC Auth Code Request Path Authenticator With Consent"
-#     [description]="Obtain an access token and an id token using the request path authenticator."
-#     [jmx]="oidc/OIDC_AuthCode_Request_Path_Authenticator_WithConsent.jmx"
-#     [tenantMode]=false
-#     [skip]=false
-#     [modes]="FULL"
-# )
 # declare -A test_scenario9=(
 #     [name]="09-saml2_sso_redirect_binding"
 #     [display_name]="SAML2 SSO Redirect Binding"
