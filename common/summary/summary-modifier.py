@@ -48,9 +48,9 @@ concurrentUserCounts = 0    # Get number of different concurrent user counts
 userCount = ""  # Assign reading value from the file
 # Loop just for the first scenario to get the number of different concurrent user count
 for i in range(scenarioCount[0]):
-    if userCount != rows[1 + i][2]:
-        concurrentUserCounts += 1   # Increase the count when a new number appears
-        userCount = rows[1 + i][2]  # Assign the newly met count
+    # if userCount != rows[1 + i][2]:
+    concurrentUserCounts += 1   # Increase the count when a new number appears
+    userCount = rows[1 + i][2]  # Assign the newly met count
 
 # Write Scenario name, Concurrent Users, Throughput (Requests/sec), Average Response Time (ms) into a new file
 with open('updated_summary.csv', 'w') as file:

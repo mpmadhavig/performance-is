@@ -51,6 +51,7 @@ mode=""
 results_dir="$PWD/results-$timestamp"
 default_minimum_stack_creation_wait_time=10
 minimum_stack_creation_wait_time="$default_minimum_stack_creation_wait_time"
+concurrent_users="$default_concurrent_users"
 
 function usage() {
     echo ""
@@ -58,7 +59,7 @@ function usage() {
     echo "$0 -k <key_file> -c <certificate_name> -j <jmeter_setup_path> -n <IS_zip_file_path>"
     echo "   [-u <db_username>] [-p <db_password>] [-d <db_storage>] [-e <db_instance_type>]"
     echo "   [-i <wso2_is_instance_type>] [-b <bastion_instance_type>]"
-    echo "   [-w <minimum_stack_creation_wait_time>] [-h]"
+    echo "   [-w <minimum_stack_creation_wait_time>] [-r <concurrent_users>] [-h]"
     echo ""
     echo "-k: The Amazon EC2 key file to be used to access the instances."
     echo "-c: The name of the IAM certificate."
@@ -72,12 +73,13 @@ function usage() {
     echo "-b: The instance type used for the bastion node. Default: $default_bastion_instance_type."
     echo "-w: The minimum time to wait in minutes before polling for cloudformation stack's CREATE_COMPLETE status."
     echo "    Default: $default_minimum_stack_creation_wait_time minutes."
+    echo "-r: Concurrency levels to test. You can give multiple options to specify multiple levels. Default $default_concurrent_users."
     echo "-t: The required testing mode [FULL/QUICK]"
     echo "-h: Display this help and exit."
     echo ""
 }
 
-while getopts "q:k:c:j:n:u:p:d:e:i:b:w:t:h" opts; do
+while getopts "q:k:c:j:n:u:p:d:e:i:b:w:t:r:h" opts; do
     case $opts in
     q)
         user_tag=${OPTARG}
@@ -118,6 +120,9 @@ while getopts "q:k:c:j:n:u:p:d:e:i:b:w:t:h" opts; do
     t)
         mode=${OPTARG}
         ;;
+    r)
+        concurrent_users=${OPTARG}
+        ;;
     h)
         usage
         exit 0
@@ -132,7 +137,7 @@ shift "$((OPTIND - 1))"
 
 echo "Run mode: $mode"
 run_performance_tests_options="$@"
-run_performance_tests_options+=(" -v $mode")
+run_performance_tests_options+=(" -c $concurrent_users -v $mode")
 
 if [[ -z $user_tag ]]; then
     echo "Please provide the user tag."

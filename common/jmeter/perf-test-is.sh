@@ -120,7 +120,7 @@ function usage() {
     echo ""
 }
 
-while getopts "c:m:d:w:j:i:e:n:s:u:tp:v:h" opts; do
+while getopts "c:m:d:w:j:i:e:n:s:u:t:p:v:h" opts; do
     case $opts in
     c)
         concurrent_users+=("${OPTARG}")
@@ -213,6 +213,25 @@ else
     heap_sizes_array=( ${heap_sizes[@]} )
 fi
 
+echo "concurrent_users: $concurrent_users.........................."
+# Check concurrency level
+if [ "$concurrent_users" == "50-500" ]; then
+    echo "Running tests for concurrency level 50-500"
+    default_concurrent_users="50 100 150 300 500"
+elif [ "$concurrent_users" == "500-3000" ]; then
+    echo "Running tests for concurrency level 500-3000"
+    default_concurrent_users="500 1000 1500 2000 2500 3000"
+elif [ "$concurrent_users" == "50-3000" ]; then
+    echo "Running tests for concurrency level 500-3000"
+    default_concurrent_users="50 100 150 300 500 1000 1500 2000 2500 3000"
+elif [ "$concurrent_users" == "50-50" ]; then
+    echo "Running tests for concurrency level 50-50"
+    default_concurrent_users="50 50 50 50 50"
+else
+    echo "Running tests for concurrency level 50-500"
+    default_concurrent_users="50 100 150 300 500"
+fi
+
 declare -ag concurrent_users_array
 if [ ${#concurrent_users[@]} -eq 0 ]; then
     if [ "$mode" == "QUICK" ]; then
@@ -221,7 +240,7 @@ if [ ${#concurrent_users[@]} -eq 0 ]; then
         concurrent_users_array=( $default_concurrent_users )
     fi
 else
-    concurrent_users_array=( ${concurrent_users[@]} )
+    concurrent_users_array=( $default_concurrent_users )
 fi
 
 for heap in ${heap_sizes_array[@]}; do
@@ -500,6 +519,8 @@ function test_scenarios() {
             fi
             local scenario_name=${scenario[name]}
             local jmx_file=${scenario[jmx]}
+            local users_count=0
+            local previous_user=0
             for users in "${concurrent_users_array[@]}"; do
                 if [ "$estimate" = true ]; then
                     record_scenario_duration "$scenario_name" $((test_duration * 60 + estimated_processing_time_in_between_tests))
@@ -512,8 +533,12 @@ function test_scenarios() {
                 echo "$scenario_desc"
                 echo "=========================================================================================="
 
-                report_location=$PWD/results/${scenario_name}/${heap}_heap/${users}_users
-
+                if [[ $users = $previous_user ]]; then
+                    let "users_count+=1"
+                fi
+                report_location=$PWD/results/${scenario_name}/${heap}_heap/${users}_users/${users_count}
+                previous_user=$users
+                
                 echo ""
                 echo "Report location is $report_location"
                 mkdir -p "$report_location"
