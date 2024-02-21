@@ -52,7 +52,7 @@
           </elementProp>
           <elementProp name="tenantAdminPassword" elementType="Argument">
             <stringProp name="Argument.name">tenantAdminPassword</stringProp>
-            <stringProp name="Argument.value">tenantPassword</stringProp>
+            <stringProp name="Argument.value">TenantPassword_1</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="tenantDomainNamePrefix" elementType="Argument">
