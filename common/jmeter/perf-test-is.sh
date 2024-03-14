@@ -424,7 +424,7 @@ function run_b2b_test_data_scripts() {
         script_file="$setup_dir/$script"
         test_data_store="test-data/$script"
         mkdir -p $test_data_store
-        command="jmeter -Jhost=$lb_host -Jport=$is_port -JtokenIssuer=$token_issuer -JjwtTokenUserPassword=$jwt_token_user_password -JjwtTokenClientSecret=$jwt_token_client_secret -JnoOfNodes=$noOfNodes -n -t $script_file"
+        command="jmeter -Jhost=login.picdemo.cloud -Jport=$is_port -JtokenIssuer=$token_issuer -JjwtTokenUserPassword=$jwt_token_user_password -JjwtTokenClientSecret=$jwt_token_client_secret -JnoOfNodes=$noOfNodes -n -t $script_file"
         command+=" -l test_data_store/results.jtl"
         echo "$command"
         echo ""
@@ -609,7 +609,7 @@ function test_scenarios() {
                 mkdir -p "$report_location"
 
                 time=$(expr "$test_duration" \* 60)
-                declare -ag jmeter_params=("concurrency=$users" "time=$time" "host=$lb_host" "-Jport=$is_port" "noOfNodes=$noOfNodes" "noOfBurst=$burstTraffic" "deployment=$deployment")
+                declare -ag jmeter_params=("concurrency=$users" "time=$time" "host=login.picdemo.cloud" "-Jport=$is_port" "noOfNodes=$noOfNodes" "noOfBurst=$burstTraffic" "deployment=$deployment")
 
                 local tenantMode=${scenario[tenantMode]}
                 if [ "$tenantMode" = true ]; then
