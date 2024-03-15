@@ -24,12 +24,12 @@
           </elementProp>
           <elementProp name="adminUsername" elementType="Argument">
             <stringProp name="Argument.name">adminUsername</stringProp>
-            <stringProp name="Argument.value">${__P(username,admin)}</stringProp>
+            <stringProp name="Argument.value">${__P(username,demouser)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="adminPassword" elementType="Argument">
             <stringProp name="Argument.name">adminPassword</stringProp>
-            <stringProp name="Argument.value">${__P(password,admin)}</stringProp>
+            <stringProp name="Argument.value">${__P(password,Twcw8rL2pVCze)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="parentOrgId" elementType="Argument">
@@ -39,7 +39,7 @@
           </elementProp>
           <elementProp name="adminCredentials" elementType="Argument">
             <stringProp name="Argument.name">adminCredentials</stringProp>
-            <stringProp name="Argument.value">${__P(adminCredentials,YWRtaW46YWRtaW4=)} </stringProp>
+            <stringProp name="Argument.value">${__P(adminCredentials,ZGVtb3VzZXI6VHdjdzhyTDJwVkN6ZQ==)} </stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
           <elementProp name="application_end_point" elementType="Argument">
