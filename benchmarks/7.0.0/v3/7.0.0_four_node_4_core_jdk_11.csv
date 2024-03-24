@@ -39,16 +39,16 @@ OIDC Auth Code Grant Redirect Without Consent Retrieve User Attributes Groups an
 OIDC Auth Code Grant Redirect Without Consent Retrieve User Attributes Groups and Roles,2000,3727
 OIDC Auth Code Grant Redirect Without Consent Retrieve User Attributes Groups and Roles,2500,6527
 OIDC Auth Code Grant Redirect Without Consent Retrieve User Attributes Groups and Roles,3000,8575
-OIDC Auth Code Grant Redirect Without Consent Retrieve User Attributes Groups and Roles - Burst,50,2767
-OIDC Auth Code Grant Redirect Without Consent Retrieve User Attributes Groups and Roles - Burst,100,2671
-OIDC Auth Code Grant Redirect Without Consent Retrieve User Attributes Groups and Roles - Burst,150,2543
-OIDC Auth Code Grant Redirect Without Consent Retrieve User Attributes Groups and Roles - Burst,300,2799
-OIDC Auth Code Grant Redirect Without Consent Retrieve User Attributes Groups and Roles - Burst,500,2847
-OIDC Auth Code Grant Redirect Without Consent Retrieve User Attributes Groups and Roles - Burst,1000,3999
-OIDC Auth Code Grant Redirect Without Consent Retrieve User Attributes Groups and Roles - Burst,1500,4991
-OIDC Auth Code Grant Redirect Without Consent Retrieve User Attributes Groups and Roles - Burst,2000,5535
-OIDC Auth Code Grant Redirect Without Consent Retrieve User Attributes Groups and Roles - Burst,2500,7583
-OIDC Auth Code Grant Redirect Without Consent Retrieve User Attributes Groups and Roles - Burst,3000,7711
+Burst Traffic OIDC Auth Code Grant Redirect Without Consent Retrieve User Attributes Groups and Roles,50,2767
+Burst Traffic OIDC Auth Code Grant Redirect Without Consent Retrieve User Attributes Groups and Roles,100,2671
+Burst Traffic OIDC Auth Code Grant Redirect Without Consent Retrieve User Attributes Groups and Roles,150,2543
+Burst Traffic OIDC Auth Code Grant Redirect Without Consent Retrieve User Attributes Groups and Roles,300,2799
+Burst Traffic OIDC Auth Code Grant Redirect Without Consent Retrieve User Attributes Groups and Roles,500,2847
+Burst Traffic OIDC Auth Code Grant Redirect Without Consent Retrieve User Attributes Groups and Roles,1000,3999
+Burst Traffic OIDC Auth Code Grant Redirect Without Consent Retrieve User Attributes Groups and Roles,1500,4991
+Burst Traffic OIDC Auth Code Grant Redirect Without Consent Retrieve User Attributes Groups and Roles,2000,5535
+Burst Traffic OIDC Auth Code Grant Redirect Without Consent Retrieve User Attributes Groups and Roles,2500,7583
+Burst Traffic OIDC Auth Code Grant Redirect Without Consent Retrieve User Attributes Groups and Roles,3000,7711
 OIDC Password Grant Type,50,123
 OIDC Password Grant Type,100,301
 OIDC Password Grant Type,150,459
