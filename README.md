@@ -37,7 +37,19 @@ You can run IS Performance Tests from the source using the following instruction
     * [Jinja2 2.11.1](https://pypi.org/project/Jinja2/)
     * numpy
 
-### Steps to run performance tests.
+### How to run performance tests using the Jenkins Build
+
+1. Goto [Performance tests Jenkins build](https://wso2.org/jenkins/job/product-performance-test).
+2. You might need to get access to the build.
+3. Fill out the relavant fields and trigger the build.
+
+Please note that, you can do any modification to the test suite in your forked branch and mention the fork branch details in the jenkins build.
+
+#### Resources
+* [Available Tests](https://github.com/wso2/performance-is/blob/master/common/deployment/test_scenarios.sh)
+* [Test scripts](https://github.com/wso2/performance-is/tree/master/common/jmeter)
+
+### Steps to run performance tests Locally
 
 1. Clone this repository.
 
